@@ -29,7 +29,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container max-w-7xl h-16 flex items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center" aria-label="Barrat Behavioral Health and Primary Care Home">
-          <img src="https://media.barratbhandconsulting.com/Barratbhand-consulting%20main-logo.png" alt="Barrat Behavioral Health Logo" className="h-10 w-auto" />
+          <img src="https://media.inboundwizard.com/Barratbhand-consulting%20main-logo.png" alt="Barrat Behavioral Health Logo" className="h-10 w-auto" />
         </Link>
         <NavigationMenu className="hidden md:flex">
           <NavigationMenuList>

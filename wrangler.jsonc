@@ -15,7 +15,7 @@
 		"enabled": true
 	},
 	"routes": [
-		"barratbhandconsulting.com/*",
-		"www.barratbhandconsulting.com/*"
+		"inboundwizard.com/*",
+		"www.inboundwizard.com/*"
 	]
 }

@@ -67,7 +67,7 @@ export function AboutPage() {
             </div>
             <div className="order-1 lg:order-2">
               <img
-                src="https://media.barratbhandconsulting.com/Kadija%20Conteh-Barrat.png"
+                src="https://media.inboundwizard.com/Kadija%20Conteh-Barrat%20(1).png"
                 alt="Kadija Conteh-Barrat"
                 className="rounded-lg shadow-xl w-full h-auto object-cover aspect-square"
               />

@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 export function HeroSection() {
   return (
-    <section className="relative bg-cover bg-center" style={{ backgroundImage: "url('https://media.barratbhandconsulting.com/hero%20back%20image.svg')" }}>
+    <section className="relative bg-cover bg-center" style={{ backgroundImage: "url('https://media.inboundwizard.com/hero%20back%20image.svg')" }}>
       <div className="absolute inset-0 bg-white/75" />
       <div className="relative container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 leading-tight">
