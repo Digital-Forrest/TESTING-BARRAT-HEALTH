@@ -116,11 +116,32 @@ export function ContactPage() {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
+              {/* Google Maps Integration */}
               <div className="bg-white rounded-lg p-6 shadow-sm">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">Location</h3>
-                <div className="bg-gray-100 rounded-lg h-64 flex items-center justify-center">
-                  <p className="text-gray-500">Map integration can be added here</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">Location & Directions</h3>
+                <div className="space-y-4">
+                  <div className="rounded-lg overflow-hidden">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3114.860058694048!2d-77.26017358725433!3d38.67508407165448!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b65445df03df5f%3A0x7ba69c390de82e36!2s1346%20Old%20Bridge%20Rd%20%23101%2C%20Woodbridge%2C%20VA%2022192!5e0!3m2!1sen!2sus!4v1760039740348!5m2!1sen!2sus"
+                      width="100%"
+                      height="250"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Barrat Behavioral Health Location"
+                    />
+                  </div>
+                  <div className="text-center">
+                    <a
+                      href="https://www.google.com/maps/dir/?api=1&destination=1346+Old+Bridge+Road+Suite+101+Woodbridge+VA+22192"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-brand-orange text-white rounded-lg hover:bg-brand-orange-dark transition-colors"
+                    >
+                      Get Directions
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
