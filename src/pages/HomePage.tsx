@@ -1,5 +1,6 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ApproachSection, FounderSection } from "@/components/sections/ContentSections";
+import { BookingSection } from "@/components/sections/BookingSection";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
 import { WhyChooseUsSection } from "@/components/sections/WhyChooseUsSection";
 import { ServiceAreaSection } from "@/components/sections/ServiceAreaSection";
@@ -16,6 +17,7 @@ export function HomePage() {
       <HeroSection />
       <ApproachSection />
       <FounderSection />
+      <BookingSection />
       <ServicesGrid />
       <WhyChooseUsSection />
       <ServiceAreaSection />

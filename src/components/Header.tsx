@@ -27,11 +27,14 @@ const specialties = [
 export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container max-w-7xl h-16 flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        <Link to="/" className="flex items-center" aria-label="Barrat Behavioral Health and Primary Care Home">
+      <div className="container max-w-7xl h-16 flex items-center px-4 sm:px-6 lg:px-8">
+        {/* Logo - positioned absolutely to maintain left alignment */}
+        <Link to="/" className="flex items-center absolute left-4 sm:left-6 lg:left-8" aria-label="Barrat Behavioral Health and Primary Care Home">
           <img src="https://media.inboundwizard.com/Barratbhand-consulting%20main-logo.png" alt="Barrat Behavioral Health Logo" className="h-10 w-auto" />
         </Link>
-        <NavigationMenu className="hidden md:flex">
+        
+        {/* Centered Navigation Menu */}
+        <NavigationMenu className="hidden md:flex mx-auto">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavLink
@@ -78,7 +81,9 @@ export function Header() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <div className="flex items-center gap-2">
+        
+        {/* Book Appointment Button - positioned absolutely to maintain right alignment */}
+        <div className="flex items-center gap-2 absolute right-4 sm:right-6 lg:right-8">
           <Button asChild className="hidden md:inline-flex bg-brand-orange hover:bg-brand-orange-dark text-white rounded-lg px-6 py-3 transition-colors">
             <a href="https://care.headway.co/providers/kadija-conteh-barrat?utm_source=website&utm_medium=direct_link" target="_blank" rel="noopener noreferrer" aria-label="Book an appointment">
               Book Appointment
