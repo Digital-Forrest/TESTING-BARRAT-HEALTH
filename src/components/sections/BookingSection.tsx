@@ -6,38 +6,13 @@ export function BookingSection() {
       <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
-            Helping Every Mind Bloom
+            Nurturing Mental Wellness for All Ages
           </h2>
           <p className="text-lg text-gray-600 mb-12">
             Neurodivergent care for children, adolescents, and adults across the lifespan.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {/* Zocdoc Card */}
-            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
-              <div className="flex items-center justify-center mb-4">
-                <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-black">
-                    <div className="w-2 h-2 bg-black rounded-full"></div>
-                  </div>
-                  <span className="text-sm text-gray-500">™</span>
-                  <span className="font-semibold text-gray-900">Zocdoc</span>
-                </div>
-              </div>
-              <Button 
-                asChild 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 text-sm font-medium transition-colors"
-              >
-                <a 
-                  href="https://www.zocdoc.com/doctor/kadija-conteh-barrat-np-1164659" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="Book appointment on Zocdoc"
-                >
-                  Book An Appointment
-                </a>
-              </Button>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
             {/* Psychology Today Card */}
             <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow">
@@ -48,7 +23,7 @@ export function BookingSection() {
               </div>
               <Button 
                 asChild 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 text-sm font-medium transition-colors"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-3 py-2 text-xs font-medium transition-colors whitespace-nowrap"
               >
                 <a 
                   href="https://www.psychologytoday.com/us/psychiatrists/kadija-conteh-barrat-stafford-va/1164659" 
@@ -71,7 +46,7 @@ export function BookingSection() {
               </div>
               <Button 
                 asChild 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 text-sm font-medium transition-colors"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-3 py-2 text-xs font-medium transition-colors whitespace-nowrap"
               >
                 <a 
                   href="https://care.headway.co/providers/kadija-conteh-barrat?utm_source=website&utm_medium=direct_link" 
@@ -93,7 +68,7 @@ export function BookingSection() {
               </div>
               <Button 
                 asChild 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 text-sm font-medium transition-colors"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-3 py-2 text-xs font-medium transition-colors whitespace-nowrap"
               >
                 <a 
                   href="https://growtherapy.com/book-appointment?id=25415&utm_source=website&utm_medium=booking-link&utm_campaign=provider-dashboard" 
@@ -115,7 +90,7 @@ export function BookingSection() {
               </div>
               <Button 
                 asChild 
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-4 py-2 text-sm font-medium transition-colors"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg px-3 py-2 text-xs font-medium transition-colors whitespace-nowrap"
               >
                 <a 
                   href="https://secure.helloalma.com/providers/kadija-conteh-barrat/" 
