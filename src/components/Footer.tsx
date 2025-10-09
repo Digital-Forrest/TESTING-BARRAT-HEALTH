@@ -41,7 +41,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-gray-700 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-base text-gray-400">&copy; {new Date().getFullYear()} Barrat Behavioral Health and Primary Care. All rights reserved.</p>
-          <p className="text-sm text-gray-500 mt-4 sm:mt-0">Built with ���️ at Cloudflare</p>
+          <p className="text-sm text-gray-500 mt-4 sm:mt-0">Built with Adsit Digital</p>
         </div>
       </div>
     </footer>
