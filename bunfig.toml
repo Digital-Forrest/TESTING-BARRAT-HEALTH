@@ -1,0 +1,7 @@
+[install]
+# Allow lockfile updates during deployment
+frozen-lockfile = false
+# Use faster install method
+cache = true
+# Ensure consistent installs
+exact = true
