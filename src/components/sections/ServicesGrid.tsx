@@ -50,21 +50,21 @@ const services = [
 ];
 const FlipCard = ({ service }: { service: typeof services[0] }) => (
   <div className="group h-80 [perspective:1000px]">
-    <div className="relative h-full w-full rounded-xl shadow-xl transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)]">
+    <div className="relative h-full w-full card-oval transition-all duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)] group-focus-within:[transform:rotateY(180deg)]">
       {/* Front of Card */}
       <div className="absolute inset-0 [backface-visibility:hidden]">
-        <img className="h-full w-full rounded-xl object-cover" src={service.imageUrl} alt={`Image representing ${service.title}`} />
-        <div className="absolute inset-0 bg-black/50 rounded-xl flex items-end p-6">
-          <h3 className="text-white text-2xl font-bold font-display">{service.title}</h3>
+        <img className="h-full w-full rounded-oval object-cover" src={service.imageUrl} alt={`Image representing ${service.title}`} />
+        <div className="absolute inset-0 bg-black/50 rounded-oval flex items-end p-6">
+          <h3 className="text-white text-2xl font-bold font-heading">{service.title}</h3>
         </div>
       </div>
       {/* Back of Card */}
-      <div className="absolute inset-0 h-full w-full rounded-xl bg-light-gray p-6 text-center [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between">
+      <div className="absolute inset-0 h-full w-full rounded-oval bg-light-gray p-6 text-center [transform:rotateY(180deg)] [backface-visibility:hidden] flex flex-col justify-between">
         <div>
-          <h3 className="text-2xl font-bold font-display text-gray-800">{service.title}</h3>
-          <p className="mt-2 text-gray-600">{service.description}</p>
+          <h3 className="text-2xl font-bold font-heading text-dark-text">{service.title}</h3>
+          <p className="mt-2 text-neutral-gray font-body">{service.description}</p>
         </div>
-        <Link to="/services" className="text-brand-orange font-semibold hover:text-brand-orange-dark flex items-center justify-center self-end w-full" aria-label={`Learn more about ${service.title}`}>
+        <Link to="/services" className="text-primary-blue font-semibold hover:text-primary-blue/80 flex items-center justify-center self-end w-full transition-colors duration-300" aria-label={`Learn more about ${service.title}`}>
           Learn More <ArrowRight className="ml-2 h-4 w-4" />
         </Link>
       </div>
@@ -73,10 +73,10 @@ const FlipCard = ({ service }: { service: typeof services[0] }) => (
 );
 export function ServicesGrid() {
   return (
-    <section className="bg-light-gray">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <section className="bg-light-gray py-20">
+      <div className="container max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900">Patient-Centered Mental Health Care</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark-text">Patient-Centered Mental Health Care</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service) => (
@@ -84,7 +84,7 @@ export function ServicesGrid() {
           ))}
         </div>
         <div className="mt-16 text-center">
-          <Button asChild size="lg" className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-8 py-4 text-base transition-transform hover:scale-105">
+          <Button asChild size="lg" className="bg-primary-blue hover:bg-primary-blue/90 text-white font-semibold rounded-md px-8 py-4 text-base transition-all duration-300 hover:scale-105">
             <Link to="/services" aria-label="View all services">
               View All Services
             </Link>

@@ -8,27 +8,27 @@ const benefits = [
 ];
 export function WhyChooseUsSection() {
   return (
-    <section className="bg-white">
-      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <section className="bg-white py-20">
+      <div className="container max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900">Why Choose Barrat Behavioral Health and Primary Care?</h2>
-            <p className="mt-4 text-lg text-gray-600">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark-text">Why Choose Barrat Behavioral Health and Primary Care?</h2>
+            <p className="mt-4 text-lg text-neutral-gray font-body">
               We are committed to providing a safe, non-judgmental space where you can explore your challenges and discover your path to a more balanced and joyful life.
             </p>
             <div className="mt-8 space-y-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start gap-4">
-                  <CheckCircle className="h-6 w-6 text-brand-orange flex-shrink-0 mt-1" />
+                  <CheckCircle className="h-6 w-6 text-primary-orange flex-shrink-0 mt-1" />
                   <div>
-                    <h3 className="text-lg font-semibold text-gray-800">{benefit.title}</h3>
-                    <p className="text-gray-600">{benefit.description}</p>
+                    <h3 className="text-lg font-semibold text-dark-text font-heading">{benefit.title}</h3>
+                    <p className="text-neutral-gray font-body">{benefit.description}</p>
                   </div>
                 </div>
               ))}
             </div>
             <div className="mt-10">
-              <Button asChild size="lg" className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-8 py-4 text-base transition-transform hover:scale-105">
+              <Button asChild size="lg" className="bg-primary-blue hover:bg-primary-blue/90 text-white font-semibold rounded-md px-8 py-4 text-base transition-all duration-300 hover:scale-105">
                 <a href="https://care.headway.co/providers/kadija-conteh-barrat?utm_source=website&utm_medium=direct_link" target="_blank" rel="noopener noreferrer" aria-label="Book your session">
                   Book Your Session
                 </a>
@@ -36,7 +36,7 @@ export function WhyChooseUsSection() {
             </div>
           </div>
           <div className="hidden lg:block">
-            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop" alt="A calm and welcoming therapy room" className="rounded-lg shadow-xl" />
+            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop" alt="A calm and welcoming therapy room" className="image-tall-rounded" />
           </div>
         </div>
       </div>

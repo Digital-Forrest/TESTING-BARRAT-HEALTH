@@ -2,22 +2,36 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 export function HeroSection() {
   return (
-    <section className="relative bg-cover bg-center" style={{ backgroundImage: "url('https://media.inboundwizard.com/hero%20back%20image.svg')" }}>
-      <div className="absolute inset-0 bg-white/75" />
-      <div className="relative container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40 text-center">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 leading-tight">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Video Background */}
+      <video 
+        autoPlay 
+        muted 
+        loop 
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+      >
+        <source src="https://media.inboundwizard.com/videoBanner.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40 z-10" />
+      
+      {/* Content */}
+      <div className="relative z-20 container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight tracking-wide">
           Supporting Teens and Adults to Thrive at Every Stage
         </h1>
-        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-600">
+        <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-white/90 font-body">
           Healing can begin even in the darkest moments.
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Button asChild size="lg" className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-8 py-6 text-base transition-transform hover:scale-105 w-full sm:w-auto">
+          <Button asChild size="lg" className="bg-primary-blue hover:bg-primary-blue/90 text-white font-semibold rounded-md px-8 py-6 text-base transition-all duration-300 hover:scale-105 w-full sm:w-auto">
             <Link to="/contact" aria-label="Book an appointment">
               Book Appointment
             </Link>
           </Button>
-          <Button asChild size="lg" variant="outline" className="border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white font-semibold rounded-lg px-8 py-6 text-base transition-colors w-full sm:w-auto border-2 bg-white/50 hover:bg-brand-orange">
+          <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary-blue font-semibold rounded-md px-8 py-6 text-base transition-all duration-300 w-full sm:w-auto bg-transparent">
             <Link to="/services" aria-label="Explore our services">
               Explore Services
             </Link>

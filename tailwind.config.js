@@ -21,20 +21,25 @@ export default {
   	extend: {
   		fontFamily: {
   			sans: [
-  				'Poppins',
+  				'Merriweather',
   				'Inter',
   				'-apple-system',
   				'BlinkMacSystemFont',
   				'Segoe UI',
   				'Roboto',
-  				'sans-serif'
+  				'serif'
   			],
-  			display: [
-  				'Playfair Display',
-  				'Cal Sans',
+  			heading: [
+  				'Montserrat',
   				'Inter',
   				'system-ui',
   				'sans-serif'
+  			],
+  			body: [
+  				'Merriweather',
+  				'Inter',
+  				'system-ui',
+  				'serif'
   			],
   			mono: [
   				'JetBrains Mono',
@@ -100,17 +105,31 @@ export default {
   			'96': '24rem',
   			'128': '32rem'
   		},
+  		maxWidth: {
+  			'container': '1200px',
+  		},
   		borderRadius: {
   			'4xl': '2rem',
   			'5xl': '2.5rem',
+  			'oval': '60px',
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-        'brand-orange': '#f78850',
-        'brand-orange-dark': '#f57030',
-        'brand-blue': '#E0E7FF',
+        // Brand Colors
+        'primary-orange': '#FF6900',
+        'primary-blue': '#0056A7',
+        'secondary-blue-light': '#7C7EE5',
+        'accent-gold': '#FCB900',
+        'neutral-white': '#FFFFFF',
+        'neutral-gray': '#ABB8C3',
+        'dark-text': '#212121',
+        
+        // Legacy brand colors for compatibility
+        'brand-orange': '#FF6900',
+        'brand-orange-dark': '#e55a00',
+        'brand-blue': '#0056A7',
         'brand-orange-soft': '#FFFBEB',
         'light-gray': '#f9f9f9',
   			background: 'hsl(var(--background))',

@@ -1,12 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Merriweather:wght@400&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer base {
   :root {
+    /* Brand Colors */
+    --primary-orange: #FF6900;
+    --primary-blue: #0056A7;
+    --secondary-blue-light: #7C7EE5;
+    --accent-gold: #FCB900;
+    --neutral-white: #FFFFFF;
+    --neutral-gray: #ABB8C3;
+    --dark-text: #212121;
+    
     /* Core Colors */
     --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --foreground: 0 0% 13%;
     --primary: 0 0% 9%;
     --primary-foreground: 0 0% 98%;
     --muted: 0 0% 96.1%;
@@ -85,5 +94,106 @@
     @apply bg-background text-foreground font-sans;
     font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
     text-rendering: optimizeLegibility;
+  }
+  
+  /* Brand Typography */
+  .font-heading {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  
+  .font-body {
+    font-family: 'Merriweather', serif;
+    font-weight: 400;
+  }
+  
+  /* Curved Sections */
+  .curved-section-top {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .curved-section-top::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 160px;
+    background: var(--primary-orange);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+    z-index: -1;
+  }
+  
+  .curved-section-bottom {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .curved-section-bottom::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: var(--primary-blue);
+    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+    z-index: -1;
+  }
+  
+  /* Rounded Oval Cards */
+  .card-oval {
+    border-radius: 60px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .card-oval:hover {
+    transform: scale(1.03);
+  }
+  
+  /* Tall Rounded Rectangle Images */
+  .image-tall-rounded {
+    border-radius: 60px;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  }
+  
+  /* Gradient Background */
+  .gradient-primary {
+    background: linear-gradient(135deg, #FF6900 0%, #1863DC 100%);
+  }
+  
+  /* Wave Footer */
+  .footer-wave {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .footer-wave::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: var(--primary-orange);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+    z-index: -1;
+  }
+  
+  .footer-wave::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--primary-blue);
+    clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
+    z-index: -1;
   }
 }
