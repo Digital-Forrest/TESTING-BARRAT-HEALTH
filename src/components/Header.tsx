@@ -26,21 +26,26 @@ const specialties = [
 ];
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container max-w-7xl h-16 flex items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
+    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative">
+      {/* Curvy Orange Line */}
+      <div className="absolute bottom-0 left-0 right-0 h-2 bg-primary-orange" style={{
+        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 80%)'
+      }}></div>
+      
+      <div className="container max-w-container h-20 flex items-center justify-between px-4 sm:px-6 lg:px-8">
+        {/* Logo - Increased by 35% */}
         <Link to="/" className="flex items-center flex-shrink-0" aria-label="Barrat Behavioral Health and Primary Care Home">
-          <img src="https://media.inboundwizard.com/Barratbhand-consulting%20main-logo.png" alt="Barrat Behavioral Health Logo" className="h-10 w-auto" />
+          <img src="https://media.inboundwizard.com/Barratbhand-consulting%20main-logo.png" alt="Barrat Behavioral Health Logo" className="h-14 w-auto" />
         </Link>
         
         {/* Centered Navigation Menu */}
         <NavigationMenu className="hidden md:flex flex-1 justify-center">
-          <NavigationMenuList className="flex items-center space-x-1">
+          <NavigationMenuList className="flex items-center justify-center space-x-2">
             <NavigationMenuItem>
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
+                  cn(navigationMenuTriggerStyle(), isActive && "text-primary-orange font-semibold")
                 }
                 aria-label="Home"
               >
@@ -51,7 +56,7 @@ export function Header() {
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
+                  cn(navigationMenuTriggerStyle(), isActive && "text-primary-orange font-semibold")
                 }
                 aria-label="About"
               >
@@ -61,7 +66,7 @@ export function Header() {
             <NavigationMenuItem>
               <NavigationMenuTrigger aria-label="View our specialties">Our Specialties</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white border border-gray-200 rounded-lg shadow-lg">
                   {specialties.map((component) => (
                     <ListItem key={component.title} to={component.href} title={component.title} />
                   ))}
@@ -72,7 +77,7 @@ export function Header() {
               <NavLink
                 to="/blog"
                 className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
+                  cn(navigationMenuTriggerStyle(), isActive && "text-primary-orange font-semibold")
                 }
                 aria-label="Blog"
               >
@@ -83,7 +88,7 @@ export function Header() {
               <NavLink
                 to="/contact"
                 className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
+                  cn(navigationMenuTriggerStyle(), isActive && "text-primary-orange font-semibold")
                 }
                 aria-label="Contact Us"
               >
@@ -95,7 +100,7 @@ export function Header() {
         
         {/* Book Appointment Button */}
         <div className="flex items-center gap-2 flex-shrink-0">
-          <Button asChild className="hidden md:inline-flex bg-brand-orange hover:bg-brand-orange-dark text-white rounded-lg px-6 py-3 transition-colors">
+          <Button asChild className="hidden md:inline-flex bg-primary-orange hover:bg-primary-orange/90 text-white rounded-lg px-6 py-3 transition-colors">
             <Link to="/contact" aria-label="Book an appointment">
               Book Appointment
             </Link>
@@ -109,12 +114,12 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <nav className="grid gap-6 text-lg font-medium mt-8">
-                <Link to="/" className="hover:text-brand-orange transition-colors" aria-label="Home">Home</Link>
-                <Link to="/about" className="hover:text-brand-orange transition-colors" aria-label="About">About</Link>
-                <Link to="/services" className="hover:text-brand-orange transition-colors" aria-label="Services">Services</Link>
-                <Link to="/blog" className="hover:text-brand-orange transition-colors" aria-label="Blog">Blog</Link>
-                <Link to="/contact" className="hover:text-brand-orange transition-colors" aria-label="Contact Us">Contact Us</Link>
-                <Button asChild className="bg-brand-orange hover:bg-brand-orange-dark text-white rounded-lg px-6 py-3 transition-colors mt-4">
+                <Link to="/" className="hover:text-primary-orange transition-colors" aria-label="Home">Home</Link>
+                <Link to="/about" className="hover:text-primary-orange transition-colors" aria-label="About">About</Link>
+                <Link to="/services" className="hover:text-primary-orange transition-colors" aria-label="Services">Services</Link>
+                <Link to="/blog" className="hover:text-primary-orange transition-colors" aria-label="Blog">Blog</Link>
+                <Link to="/contact" className="hover:text-primary-orange transition-colors" aria-label="Contact Us">Contact Us</Link>
+                <Button asChild className="bg-primary-orange hover:bg-primary-orange/90 text-white rounded-lg px-6 py-3 transition-colors mt-4">
                   <Link to="/contact" aria-label="Book an appointment">
                     Book Appointment
                   </Link>
@@ -138,13 +143,13 @@ const ListItem = React.forwardRef<
           to={to}
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-orange/10 hover:text-primary-blue focus:bg-primary-orange/10 focus:text-primary-blue text-dark-text",
             className
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="text-sm font-medium leading-none font-heading">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-neutral-gray font-body">
             {children}
           </p>
         </Link>
