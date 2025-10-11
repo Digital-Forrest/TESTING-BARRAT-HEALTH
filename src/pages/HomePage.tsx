@@ -15,9 +15,6 @@ export function HomePage() {
         description="Welcome to Barrat Behavioral Health and Primary Care. We offer expert, patient-centered mental health services for teens and adults in Virginia. Specializing in ADHD, PTSD, anxiety, and trauma care. Start your healing journey today."
       />
       <HeroSection />
-      <div className="curved-section-top">
-        <ApproachSection />
-      </div>
       <FounderSection />
       <div className="curved-section-bottom">
         <BookingSection />

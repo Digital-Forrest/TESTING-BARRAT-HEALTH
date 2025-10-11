@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 export function ApproachSection() {
   return (
-    <section className="bg-light-gray py-20">
+    <section className="bg-white/95 backdrop-blur-sm py-20">
       <div className="container max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark-text">Our Approach</h2>
