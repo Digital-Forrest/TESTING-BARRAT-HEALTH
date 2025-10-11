@@ -105,12 +105,20 @@ export default ({ mode }: { mode: string }) => {
           entryFileNames: 'assets/[name]-[hash].js',
           assetFileNames: 'assets/[name]-[hash].[ext]'
         },
+        treeshake: {
+          moduleSideEffects: false
+        },
       },
       terserOptions: {
         compress: {
           drop_console: mode === "production",
           drop_debugger: true,
+          pure_funcs: mode === "production" ? ['console.log', 'console.info', 'console.debug'] : [],
+          passes: 2
         },
+        mangle: {
+          safari10: true
+        }
       },
       chunkSizeWarningLimit: 1000,
     },

@@ -3,8 +3,6 @@ if (import.meta.env.DEV) {
   import('@/lib/errorReporter');
 }
 
-import { enableMapSet } from "immer";
-enableMapSet();
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import {
