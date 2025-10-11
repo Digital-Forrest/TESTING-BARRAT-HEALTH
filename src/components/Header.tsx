@@ -28,8 +28,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative">
       {/* Smooth S-Curve Orange Border */}
-      <div className="absolute bottom-0 left-0 right-0 h-3 bg-primary-orange" style={{
-        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 60%)'
+      <div className="absolute bottom-0 left-0 right-0 h-8 bg-primary-orange" style={{
+        clipPath: 'polygon(0 0, 100% 0, 100% 70%, 75% 90%, 50% 100%, 25% 90%, 0 70%)'
       }}></div>
       
       <div className="container max-w-container h-20 flex items-center justify-between px-4 sm:px-6 lg:px-8">
