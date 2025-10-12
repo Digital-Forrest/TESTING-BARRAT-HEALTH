@@ -12,42 +12,28 @@ export default {
   ],
   safelist: [
     // Keep essential classes that might be dynamically generated
-    'bg-primary-orange',
-    'text-primary-orange',
-    'border-primary-orange',
-    'bg-primary-blue',
-    'text-primary-blue',
-    'border-primary-blue',
+    'bg-brand-orange',
+    'text-brand-orange',
+    'border-brand-orange',
+    'bg-brand-orange-dark',
+    'hover:bg-brand-orange-dark',
+    'bg-brand-blue',
+    'text-brand-blue',
+    'border-brand-blue',
+    'hover:bg-brand-blue',
   ],
   theme: {
   	extend: {
   		fontFamily: {
   			sans: [
   				'Merriweather',
-  				'Inter',
-  				'-apple-system',
-  				'BlinkMacSystemFont',
-  				'Segoe UI',
-  				'Roboto',
-  				'serif'
-  			],
-  			heading: [
-  				'Montserrat',
-  				'Inter',
   				'system-ui',
   				'sans-serif'
   			],
-  			body: [
-  				'Merriweather',
-  				'Inter',
+  			display: [
+  				'Montserrat',
   				'system-ui',
-  				'serif'
-  			],
-  			mono: [
-  				'JetBrains Mono',
-  				'Fira Code',
-  				'Consolas',
-  				'monospace'
+  				'sans-serif'
   			]
   		},
   		fontSize: {
@@ -96,15 +82,6 @@ export default {
   		},
   		colors: {
         // Brand Colors
-        'primary-orange': '#FF6900',
-        'primary-blue': '#0056A7',
-        'secondary-blue-light': '#7C7EE5',
-        'accent-gold': '#FCB900',
-        'neutral-white': '#FFFFFF',
-        'neutral-gray': '#ABB8C3',
-        'dark-text': '#212121',
-        
-        // Legacy brand colors for compatibility
         'brand-orange': '#FF6900',
         'brand-orange-dark': '#e55a00',
         'brand-blue': '#0056A7',
@@ -147,50 +124,6 @@ export default {
   					transform: 'translateY(0)'
   				}
   			},
-  			'slide-up': {
-  				'0%': {
-  					transform: 'translateY(20px)',
-  					opacity: '0'
-  				},
-  				'100%': {
-  					transform: 'translateY(0)',
-  					opacity: '1'
-  				}
-  			},
-  			'scale-in': {
-  				'0%': {
-  					transform: 'scale(0.95)',
-  					opacity: '0'
-  				},
-  				'100%': {
-  					transform: 'scale(1)',
-  					opacity: '1'
-  				}
-  			},
-  			shimmer: {
-  				'0%': {
-  					transform: 'translateX(-100%)'
-  				},
-  				'100%': {
-  					transform: 'translateX(100%)'
-  				}
-  			},
-  			glow: {
-  				'0%, 100%': {
-  					boxShadow: '0 0 20px -5px rgba(99, 102, 241, 0.4)'
-  				},
-  				'50%': {
-  					boxShadow: '0 0 40px -5px rgba(99, 102, 241, 0.6)'
-  				}
-  			},
-  			float: {
-  				'0%, 100%': {
-  					transform: 'translateY(0px)'
-  				},
-  				'50%': {
-  					transform: 'translateY(-10px)'
-  				}
-  			},
   			'accordion-down': {
   				from: {
   					height: '0'
@@ -209,19 +142,12 @@ export default {
   			}
   		},
   		animation: {
-  			'fade-in': 'fade-in 0.6s ease-out',
-  			'slide-up': 'slide-up 0.4s ease-out',
-  			'scale-in': 'scale-in 0.3s ease-out',
-  			shimmer: 'shimmer 2s infinite',
-  			glow: 'glow 2s ease-in-out infinite',
-  			float: 'float 3s ease-in-out infinite',
+  			'fade-in': 'fade-in 0.3s ease-out',
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		backgroundImage: {
-  			'gradient-rainbow': 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%)',
-  			'gradient-primary': 'linear-gradient(135deg, #667eea, #764ba2)',
-  			'gradient-mesh': 'radial-gradient(at 40% 20%, hsla(28,100%,74%,1) 0px, transparent 50%), radial-gradient(at 80% 0%, hsla(189,100%,56%,1) 0px, transparent 50%), radial-gradient(at 0% 50%, hsla(355,100%,93%,1) 0px, transparent 50%), radial-gradient(at 80% 50%, hsla(340,100%,76%,1) 0px, transparent 50%), radial-gradient(at 0% 100%, hsla(22,100%,77%,1) 0px, transparent 50%), radial-gradient(at 80% 100%, hsla(242,100%,70%,1) 0px, transparent 50%), radial-gradient(at 0% 0%, hsla(343,100%,76%,1) 0px, transparent 50%)'
+  			'gradient-primary': 'linear-gradient(135deg, #FF6900, #0056A7)'
   		}
   	}
   },

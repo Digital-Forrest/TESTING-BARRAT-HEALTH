@@ -28,7 +28,7 @@ export function WhyChooseUsSection() {
               ))}
             </div>
             <div className="mt-10">
-              <Button asChild size="lg" className="bg-primary-blue hover:bg-primary-blue/90 text-white font-semibold rounded-md px-8 py-4 text-base transition-all duration-300 hover:scale-105">
+              <Button asChild size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-semibold rounded-md px-8 py-4 text-base transition-all duration-300 hover:scale-105">
                 <a href="https://care.headway.co/providers/kadija-conteh-barrat?utm_source=website&utm_medium=direct_link" target="_blank" rel="noopener noreferrer" aria-label="Book your session">
                   Book Your Session
                 </a>

@@ -34,9 +34,23 @@ export function BlogPostPage() {
         title={post.title}
         description={post.excerpt}
       />
-      <section className="py-16 md:py-24">
-        <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
+      
+      {/* Hero Section */}
+      <section className="relative bg-light-gray overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        >
+          <source src="https://media.inboundwizard.com/supporting%20pages%20background.webm" type="video/webm" />
+        </video>
+        
+        {/* Content */}
+        <div className="relative z-10 container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+          <div className="mb-8">
             <Button asChild variant="ghost" className="text-brand-orange font-semibold hover:text-brand-orange-dark p-0 hover:bg-transparent">
               <Link to="/blog" aria-label="Back to blog">
                 <ArrowLeft className="mr-2 h-4 w-4" />
@@ -44,16 +58,26 @@ export function BlogPostPage() {
               </Link>
             </Button>
           </div>
+          <div className="text-center">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 leading-tight mb-4">
+              {post.title}
+            </h1>
+            <p className="text-lg text-gray-600">{post.date}</p>
+          </div>
+        </div>
+      </section>
+      
+      {/* Article Content */}
+      <section className="py-16 md:py-24">
+        <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <article className="prose lg:prose-xl max-w-none prose-p:text-gray-700 prose-headings:font-display prose-headings:text-gray-900 prose-p:leading-relaxed">
-            <h1>{post.title}</h1>
-            <p className="text-md text-gray-500 mt-4 leading-normal">{post.date}</p>
             {/*
               SECURITY WARNING: The content is rendered using dangerouslySetInnerHTML.
               In a real-world application, this content should be sanitized using a library
               like DOMPurify to prevent XSS attacks before being rendered.
               For this project, we are trusting the source of the blog content.
             */}
-            <div className="mt-8" dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div dangerouslySetInnerHTML={{ __html: post.content }} />
           </article>
         </div>
       </section>

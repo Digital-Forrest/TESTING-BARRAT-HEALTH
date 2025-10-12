@@ -41,7 +41,7 @@ export function Header() {
               <NavLink
                 to="/"
                 className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-primary-orange font-semibold")
+                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
                 }
                 aria-label="Home"
               >
@@ -52,7 +52,7 @@ export function Header() {
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-primary-orange font-semibold")
+                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
                 }
                 aria-label="About"
               >
@@ -73,7 +73,7 @@ export function Header() {
               <NavLink
                 to="/blog"
                 className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-primary-orange font-semibold")
+                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
                 }
                 aria-label="Blog"
               >
@@ -82,9 +82,20 @@ export function Header() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavLink
+                to="/testimonials"
+                className={({ isActive }) =>
+                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
+                }
+                aria-label="Testimonials"
+              >
+                Testimonials
+              </NavLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavLink
                 to="/contact"
                 className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-primary-orange font-semibold")
+                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
                 }
                 aria-label="Contact Us"
               >
@@ -96,7 +107,7 @@ export function Header() {
         
         {/* Book Appointment Button */}
         <div className="flex items-center gap-2 flex-shrink-0">
-          <Button asChild className="hidden md:inline-flex bg-primary-orange hover:bg-primary-orange/90 text-white rounded-lg px-6 py-3 transition-colors">
+          <Button asChild className="hidden md:inline-flex bg-brand-orange hover:bg-brand-orange/90 text-white rounded-lg px-6 py-3 transition-colors">
             <Link to="/contact" aria-label="Book an appointment">
               Book Appointment
             </Link>
@@ -110,12 +121,13 @@ export function Header() {
             </SheetTrigger>
             <SheetContent side="right">
               <nav className="grid gap-6 text-lg font-medium mt-8">
-                <Link to="/" className="hover:text-primary-orange transition-colors" aria-label="Home">Home</Link>
-                <Link to="/about" className="hover:text-primary-orange transition-colors" aria-label="About">About</Link>
-                <Link to="/services" className="hover:text-primary-orange transition-colors" aria-label="Services">Services</Link>
-                <Link to="/blog" className="hover:text-primary-orange transition-colors" aria-label="Blog">Blog</Link>
-                <Link to="/contact" className="hover:text-primary-orange transition-colors" aria-label="Contact Us">Contact Us</Link>
-                <Button asChild className="bg-primary-orange hover:bg-primary-orange/90 text-white rounded-lg px-6 py-3 transition-colors mt-4">
+                <Link to="/" className="hover:text-brand-orange transition-colors" aria-label="Home">Home</Link>
+                <Link to="/about" className="hover:text-brand-orange transition-colors" aria-label="About">About</Link>
+                <Link to="/services" className="hover:text-brand-orange transition-colors" aria-label="Services">Services</Link>
+                <Link to="/blog" className="hover:text-brand-orange transition-colors" aria-label="Blog">Blog</Link>
+                <Link to="/testimonials" className="hover:text-brand-orange transition-colors" aria-label="Testimonials">Testimonials</Link>
+                <Link to="/contact" className="hover:text-brand-orange transition-colors" aria-label="Contact Us">Contact Us</Link>
+                <Button asChild className="bg-brand-orange hover:bg-brand-orange/90 text-white rounded-lg px-6 py-3 transition-colors mt-4">
                   <Link to="/contact" aria-label="Book an appointment">
                     Book Appointment
                   </Link>
@@ -139,7 +151,7 @@ const ListItem = React.forwardRef<
           to={to}
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary-orange/10 hover:text-primary-blue focus:bg-primary-orange/10 focus:text-primary-blue text-dark-text",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-brand-orange/10 hover:text-primary-blue focus:bg-brand-orange/10 focus:text-primary-blue text-dark-text",
             className
           )}
           {...props}

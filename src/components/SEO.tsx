@@ -6,7 +6,7 @@ interface SEOProps {
 export function SEO({ title, description }: SEOProps) {
   useEffect(() => {
     const prevTitle = document.title;
-    document.title = `${title} | Barrat Behavioral Health and Primary Care`;
+    document.title = `${title} | Barrat Behavioral Health & Primary`;
     const metaDescription = document.querySelector('meta[name="description"]');
     let prevDescription = '';
     if (metaDescription) {

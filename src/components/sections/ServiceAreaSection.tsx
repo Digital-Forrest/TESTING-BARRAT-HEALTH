@@ -14,6 +14,18 @@ export function ServiceAreaSection() {
             </div>
           ))}
         </div>
+        
+        {/* Video Section */}
+        <div className="mt-12 max-w-4xl mx-auto">
+          <video 
+            controls
+            className="w-full h-auto rounded-lg shadow-lg"
+            preload="metadata"
+          >
+            <source src="https://media.inboundwizard.com/Rediscover_Wellness.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
       </div>
     </section>
   );

@@ -8,10 +8,22 @@ export function BlogPage() {
     <div className="bg-white">
       <SEO
         title="Mental Health Blog & Resources"
-        description="Our blog provides expert insights, advice, and resources on mental health topics like anxiety, depression, ADHD, and self-care from Barrat Behavioral Health and Primary Care."
+        description="Our blog provides expert insights, advice, and resources on mental health topics like anxiety, depression, ADHD, and self-care from Barrat Behavioral Health & Primary."
       />
-      <section className="bg-light-gray">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
+      <section className="relative bg-light-gray overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        >
+          <source src="https://media.inboundwizard.com/supporting%20pages%20background.webm" type="video/webm" />
+        </video>
+        
+        {/* Content */}
+        <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 leading-tight">
             From Our Blog
           </h1>

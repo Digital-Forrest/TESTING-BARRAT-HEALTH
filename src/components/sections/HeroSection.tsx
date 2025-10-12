@@ -31,12 +31,12 @@ export function HeroSection() {
             Healing can begin even in the darkest moments.
           </p>
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg" className="bg-primary-blue hover:bg-primary-blue/90 text-white font-semibold rounded-md px-8 py-6 text-base transition-all duration-300 hover:scale-105 w-full sm:w-auto">
+            <Button asChild size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-semibold rounded-md px-8 py-6 text-base transition-all duration-300 hover:scale-105 w-full sm:w-auto">
               <Link to="/contact" aria-label="Book an appointment">
                 Book Appointment
               </Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary-blue font-semibold rounded-md px-8 py-6 text-base transition-all duration-300 w-full sm:w-auto bg-transparent">
+            <Button asChild size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-brand-blue font-semibold rounded-md px-8 py-6 text-base transition-all duration-300 w-full sm:w-auto bg-transparent">
               <Link to="/services" aria-label="Explore our services">
                 Explore Services
               </Link>

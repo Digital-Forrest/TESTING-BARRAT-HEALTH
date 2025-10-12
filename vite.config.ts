@@ -95,18 +95,36 @@ export default ({ mode }: { mode: string }) => {
       sourcemap: mode === "development" ? "inline" : false,
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['react', 'react-dom'],
-            router: ['react-router-dom'],
-            ui: ['lucide-react', 'framer-motion'],
-            utils: ['clsx', 'tailwind-merge', 'class-variance-authority']
+          manualChunks: (id) => {
+            // Create vendor chunk for large dependencies
+            if (id.includes('node_modules')) {
+              if (id.includes('react') || id.includes('react-dom')) {
+                return 'vendor-react';
+              }
+              if (id.includes('react-router')) {
+                return 'vendor-router';
+              }
+              if (id.includes('lucide-react')) {
+                return 'vendor-icons';
+              }
+              if (id.includes('framer-motion')) {
+                return 'vendor-motion';
+              }
+              // All other node_modules
+              return 'vendor';
+            }
+            // Create chunk for blog posts (large content)
+            if (id.includes('blog-posts')) {
+              return 'blog-content';
+            }
           },
           chunkFileNames: 'assets/[name]-[hash].js',
           entryFileNames: 'assets/[name]-[hash].js',
           assetFileNames: 'assets/[name]-[hash].[ext]'
         },
         treeshake: {
-          moduleSideEffects: false
+          moduleSideEffects: false,
+          propertyReadSideEffects: false
         },
       },
       terserOptions: {
@@ -114,10 +132,20 @@ export default ({ mode }: { mode: string }) => {
           drop_console: mode === "production",
           drop_debugger: true,
           pure_funcs: mode === "production" ? ['console.log', 'console.info', 'console.debug'] : [],
-          passes: 2
+          passes: 3,
+          unsafe: true,
+          unsafe_comps: true,
+          unsafe_math: true,
+          unsafe_proto: true
         },
         mangle: {
-          safari10: true
+          safari10: true,
+          properties: {
+            regex: /^_/
+          }
+        },
+        format: {
+          comments: false
         }
       },
       chunkSizeWarningLimit: 1000,

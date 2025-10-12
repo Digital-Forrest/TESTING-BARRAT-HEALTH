@@ -20,6 +20,7 @@ const HomePage = lazy(() => import('@/pages/HomePage').then(m => ({ default: m.H
 const AboutPage = lazy(() => import('@/pages/AboutPage').then(m => ({ default: m.AboutPage })));
 const ServicesPage = lazy(() => import('@/pages/ServicesPage').then(m => ({ default: m.ServicesPage })));
 const ContactPage = lazy(() => import('@/pages/ContactPage').then(m => ({ default: m.ContactPage })));
+const TestimonialsPage = lazy(() => import('@/pages/TestimonialsPage').then(m => ({ default: m.TestimonialsPage })));
 const BlogPage = lazy(() => import('@/pages/BlogPage').then(m => ({ default: m.BlogPage })));
 const BlogPostPage = lazy(() => import('@/pages/BlogPostPage').then(m => ({ default: m.BlogPostPage })));
 
@@ -64,6 +65,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <ContactPage />
+          </Suspense>
+        )
+      },
+      { 
+        path: "/testimonials", 
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <TestimonialsPage />
           </Suspense>
         )
       },

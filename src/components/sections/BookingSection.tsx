@@ -17,13 +17,13 @@ export function BookingSection() {
             {/* Psychology Today Card */}
             <div className="bg-white border border-neutral-gray/30 rounded-md p-6 shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105">
               <div className="flex items-center justify-center mb-4">
-                <span className="text-primary-blue font-bold text-lg font-heading" style={{ letterSpacing: '-0.5px' }}>
+                <span className="text-brand-blue font-bold text-lg font-heading" style={{ letterSpacing: '-0.5px' }}>
                   Psychology Today
                 </span>
               </div>
               <Button 
                 asChild 
-                className="w-full bg-primary-blue hover:bg-primary-blue/90 text-white rounded-md px-3 py-2 text-xs font-medium transition-all duration-300 whitespace-nowrap"
+                className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white rounded-md px-3 py-2 text-xs font-medium transition-all duration-300 whitespace-nowrap"
               >
                 <a 
                   href="https://www.psychologytoday.com/us/psychiatrists/kadija-conteh-barrat-stafford-va/1164659" 
@@ -46,7 +46,7 @@ export function BookingSection() {
               </div>
               <Button 
                 asChild 
-                className="w-full bg-primary-blue hover:bg-primary-blue/90 text-white rounded-md px-3 py-2 text-xs font-medium transition-all duration-300 whitespace-nowrap"
+                className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white rounded-md px-3 py-2 text-xs font-medium transition-all duration-300 whitespace-nowrap"
               >
                 <a 
                   href="https://care.headway.co/providers/kadija-conteh-barrat?utm_source=website&utm_medium=direct_link" 
@@ -68,7 +68,7 @@ export function BookingSection() {
               </div>
               <Button 
                 asChild 
-                className="w-full bg-primary-blue hover:bg-primary-blue/90 text-white rounded-md px-3 py-2 text-xs font-medium transition-all duration-300 whitespace-nowrap"
+                className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white rounded-md px-3 py-2 text-xs font-medium transition-all duration-300 whitespace-nowrap"
               >
                 <a 
                   href="https://growtherapy.com/book-appointment?id=25415&utm_source=website&utm_medium=booking-link&utm_campaign=provider-dashboard" 
@@ -90,7 +90,7 @@ export function BookingSection() {
               </div>
               <Button 
                 asChild 
-                className="w-full bg-primary-blue hover:bg-primary-blue/90 text-white rounded-md px-3 py-2 text-xs font-medium transition-all duration-300 whitespace-nowrap"
+                className="w-full bg-brand-blue hover:bg-brand-blue/90 text-white rounded-md px-3 py-2 text-xs font-medium transition-all duration-300 whitespace-nowrap"
               >
                 <a 
                   href="https://secure.helloalma.com/providers/kadija-conteh-barrat/" 

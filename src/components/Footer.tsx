@@ -7,7 +7,6 @@ export function Footer() {
           <div className="space-y-4">
             <Link to="/" className="flex items-center gap-2" aria-label="Barrat Behavioral Health and Primary Care Home">
               <img src="https://media.inboundwizard.com/Barratbhand-consulting%20main-logo.png" alt="Barrat Behavioral Health Logo" className="h-12 w-auto" />
-              <span className="font-bold text-xl text-dark-text font-heading">Barrat Behavioral Health</span>
             </Link>
             <p className="text-sm text-neutral-gray font-body">Supporting teens and adults to thrive at every stage.</p>
           </div>

@@ -72,10 +72,22 @@ export function ServicesPage() {
     <div className="bg-white">
       <SEO
         title="Mental Health Services in Woodbridge, VA"
-        description="Explore comprehensive mental health services at Barrat Behavioral Health and Primary Care. We offer specialized care for ADHD, PTSD, trauma, anxiety, mood disorders, and more for teens and adults."
+        description="Explore comprehensive mental health services at Barrat Behavioral Health & Primary. We offer specialized care for ADHD, PTSD, trauma, anxiety, mood disorders, and more for teens and adults."
       />
-      <section className="bg-light-gray">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
+      <section className="relative bg-light-gray overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        >
+          <source src="https://media.inboundwizard.com/supporting%20pages%20background.webm" type="video/webm" />
+        </video>
+        
+        {/* Content */}
+        <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 leading-tight">
             Our Services
           </h1>
@@ -92,7 +104,7 @@ export function ServicesPage() {
           <div className="space-y-16">
             <div className="prose lg:prose-lg max-w-none prose-p:text-gray-700 prose-headings:font-display prose-headings:text-gray-900 prose-p:leading-relaxed">
               <h3>Initial Evaluation</h3>
-              <p>At Barrat Behavioral Health and Primary Care, we believe the first step toward healing and growth begins with truly understanding your unique needs. Our psychiatric evaluation is a comprehensive, compassionate, and patient-centered process designed to uncover the underlying factors that may be impacting your mental health and overall well-being.</p>
+              <p>At Barrat Behavioral Health & Primary, we believe the first step toward healing and growth begins with truly understanding your unique needs. Our psychiatric evaluation is a comprehensive, compassionate, and patient-centered process designed to uncover the underlying factors that may be impacting your mental health and overall well-being.</p>
               <h4 className="text-xl font-semibold text-gray-800">What to Expect</h4>
               <p>During your initial evaluation, our experienced psychiatric provider will take the time to listen to your story and learn about your medical, emotional, and social history. This is not just a checklist of symptoms—it is a collaborative conversation where you are encouraged to share your experiences, challenges, and goals in a safe and supportive environment.</p>
               <h4 className="text-xl font-semibold text-gray-800">Why It Matters</h4>

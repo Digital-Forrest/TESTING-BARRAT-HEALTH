@@ -64,7 +64,7 @@ const FlipCard = ({ service }: { service: typeof services[0] }) => (
           <h3 className="text-2xl font-bold font-heading text-dark-text">{service.title}</h3>
           <p className="mt-2 text-neutral-gray font-body">{service.description}</p>
         </div>
-        <Link to="/services" className="text-primary-blue font-semibold hover:text-primary-blue/80 flex items-center justify-center self-end w-full transition-colors duration-300" aria-label={`Learn more about ${service.title}`}>
+        <Link to="/services" className="text-brand-blue font-semibold hover:text-brand-blue/80 flex items-center justify-center self-end w-full transition-colors duration-300" aria-label={`Learn more about ${service.title}`}>
           Learn More <ArrowRight className="ml-2 h-4 w-4" />
         </Link>
       </div>
@@ -84,7 +84,7 @@ export function ServicesGrid() {
           ))}
         </div>
         <div className="mt-16 text-center">
-          <Button asChild size="lg" className="bg-primary-blue hover:bg-primary-blue/90 text-white font-semibold rounded-md px-8 py-4 text-base transition-all duration-300 hover:scale-105">
+          <Button asChild size="lg" className="bg-brand-blue hover:bg-brand-blue/90 text-white font-semibold rounded-md px-8 py-4 text-base transition-all duration-300 hover:scale-105">
             <Link to="/services" aria-label="View all services">
               View All Services
             </Link>

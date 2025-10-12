@@ -1,17 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Merriweather:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Merriweather:wght@400&display=swap&text=ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 @layer base {
   :root {
     /* Brand Colors */
-    --primary-orange: #FF6900;
-    --primary-blue: #0056A7;
-    --secondary-blue-light: #7C7EE5;
-    --accent-gold: #FCB900;
-    --neutral-white: #FFFFFF;
-    --neutral-gray: #ABB8C3;
-    --dark-text: #212121;
+    --brand-orange: #FF6900;
+    --brand-orange-dark: #e55a00;
+    --brand-blue: #0056A7;
     
     /* Core Colors */
     --background: 0 0% 100%;
@@ -53,35 +49,13 @@
   }
   
   /* Brand Typography */
-  .font-heading {
+  .font-display {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
     letter-spacing: 0.5px;
   }
   
-  .font-body {
-    font-family: 'Merriweather', serif;
-    font-weight: 400;
-  }
-  
   /* Curved Sections */
-  .curved-section-top {
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .curved-section-top::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 160px;
-    background: var(--primary-orange);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 50%);
-    z-index: -1;
-  }
-  
   .curved-section-bottom {
     position: relative;
     overflow: hidden;
@@ -94,41 +68,22 @@
     left: 0;
     right: 0;
     height: 100px;
-    background: var(--primary-blue);
+    background: var(--brand-blue);
     clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
     z-index: -1;
   }
   
-  /* Rounded Oval Cards */
-  .card-oval {
-    border-radius: 60px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-    transition: transform 0.3s ease;
-  }
-  
-  .card-oval:hover {
-    transform: scale(1.03);
-  }
-  
-  /* Tall Rounded Rectangle Images */
-  .image-tall-rounded {
-    border-radius: 60px;
-    aspect-ratio: 4/5;
-    object-fit: cover;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.2);
-  }
-  
   /* Gradient Background */
   .gradient-primary {
-    background: linear-gradient(135deg, #FF6900 0%, #1863DC 100%);
+    background: linear-gradient(135deg, #FF6900 0%, #0056A7 100%);
   }
   
-  /* Hero Section with SVG Wave Header */
+  /* Hero Section with Header Curve SVG */
   .hero-section {
     position: relative;
     background: #fff;
     overflow: hidden;
-    padding-top: 140px;
+    padding-top: 20px;
   }
   
   .hero-section::before {
@@ -138,10 +93,8 @@
     left: 0;
     right: 0;
     width: 100vw;
-    height: 140px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z' fill='%23FF6900'/%3E%3C/svg%3E");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+    height: 20px;
+    background: #fff;
     z-index: 2;
   }
   
@@ -152,11 +105,12 @@
     left: 0;
     right: 0;
     width: 100vw;
-    height: 120px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120'%3E%3Cpath d='M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,80C672,64,768,64,864,80C960,96,1056,128,1152,128C1248,128,1344,96,1392,80L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z' fill='%234a7ca7'/%3E%3C/svg%3E");
+    height: 181px;
+    background-image: url("./header-curve1.svg");
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    z-index: 1;
+    background-position: center top;
+    z-index: 30;
   }
 
   /* Wave Footer */
@@ -172,7 +126,7 @@
     left: 0;
     right: 0;
     height: 100px;
-    background: var(--primary-orange);
+    background: var(--brand-orange);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
     z-index: -1;
   }
@@ -184,7 +138,7 @@
     left: 0;
     right: 0;
     height: 60px;
-    background: var(--primary-blue);
+    background: var(--brand-blue);
     clip-path: polygon(0 20%, 100% 0, 100% 100%, 0 100%);
     z-index: -1;
   }

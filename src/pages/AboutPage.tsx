@@ -30,13 +30,25 @@ export function AboutPage() {
     <div className="bg-white">
       <SEO
         title="About Our Practice & Founder"
-        description="Meet Kadija Conteh-Barrat, PMHNP-BC, and discover the mission behind Barrat Behavioral Health and Primary Care. Learn about our compassionate, strengths-based approach to mental wellness."
+        description="Meet Kadija Conteh-Barrat, PMHNP-BC, and discover the mission behind Barrat Behavioral Health & Primary. Learn about our compassionate, strengths-based approach to mental wellness."
       />
       {/* Hero Section */}
-      <section className="bg-light-gray">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
+      <section className="relative bg-light-gray overflow-hidden">
+        {/* Video Background */}
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        >
+          <source src="https://media.inboundwizard.com/supporting%20pages%20background.webm" type="video/webm" />
+        </video>
+        
+        {/* Content */}
+        <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 leading-tight">
-            About Barrat Behavioral Health and Primary Care
+            About Barrat Behavioral Health & Primary
           </h1>
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-600">
             Your partner in navigating the path to mental wellness with expertise, compassion, and personalized care.
@@ -84,7 +96,7 @@ export function AboutPage() {
           <div className="prose lg:prose-lg max-w-none prose-p:text-gray-700 prose-headings:font-display prose-headings:text-gray-900 prose-p:leading-relaxed space-y-8">
             <div>
               <h3 className="text-2xl md:text-3xl">Trusted Care, Lasting Positive Change</h3>
-              <p>At Barrat Behavioral Health and Primary Care, we are committed to delivering compassionate, evidence-based care that empowers individuals to create meaningful, lasting change in their lives.</p>
+              <p>At Barrat Behavioral Health & Primary, we are committed to delivering compassionate, evidence-based care that empowers individuals to create meaningful, lasting change in their lives.</p>
             </div>
             <div>
               <h3 className="text-2xl md:text-3xl">What Sets Us Apart</h3>
