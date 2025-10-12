@@ -5,3 +5,5 @@ frozen-lockfile = false
 cache = true
 # Ensure consistent installs
 exact = true
+# Use binary lockfile format
+lockfile = "bun.lockb"
