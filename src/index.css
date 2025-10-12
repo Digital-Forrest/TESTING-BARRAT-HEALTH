@@ -109,7 +109,7 @@
     background-image: url("/header-curve1.png");
     background-size: 100% auto;
     background-repeat: no-repeat;
-    background-position: center top;
+    background-position: center bottom;
     z-index: 30;
   }
 
