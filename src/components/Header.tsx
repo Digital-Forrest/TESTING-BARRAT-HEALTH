@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -25,9 +25,11 @@ const specialties = [
 ];
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   return (
-    <header className="sticky top-0 z-50 w-full sm:border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={`${isHomePage ? 'static' : 'sticky top-0'} z-50 w-full sm:border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 relative`}>
       
       <div className="container max-w-container h-20 flex items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo - Increased by 35% */}
@@ -189,6 +191,18 @@ export function Header() {
               </Link>
             </Button>
           </nav>
+        </div>
+      )}
+      
+      {/* Header Curve - only on home page */}
+      {isHomePage && (
+        <div className="absolute bottom-0 left-0 right-0 z-30 pointer-events-none">
+          <img
+            src="https://media.inboundwizard.com/header-curve1.svg"
+            alt=""
+            aria-hidden="true"
+            className="w-full h-[clamp(64px,10vw,100px)] object-fill"
+          />
         </div>
       )}
     </header>
