@@ -29,6 +29,7 @@ export function OptimizedVideo({
 }: OptimizedVideoProps) {
   const [shouldLoad, setShouldLoad] = useState(priority);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [canPlay, setCanPlay] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const { videoQuality, preloadImages } = useMobileOptimization();
@@ -61,9 +62,14 @@ export function OptimizedVideo({
 
   // Generate optimized video URLs
   const generateVideoSrc = (baseSrc: string, format: string) => {
+    // For hero video (priority), don't add quality parameters that might slow down CDN
+    if (priority) {
+      return baseSrc; // Use original URL for hero video
+    }
+    
     const params = new URLSearchParams({
       format,
-      quality: priority ? 'high' : videoQuality
+      quality: videoQuality
     });
     return `${baseSrc}?${params.toString()}`;
   };
@@ -86,8 +92,8 @@ export function OptimizedVideo({
     <video
       ref={videoRef}
       className={cn(
-        'transition-opacity duration-300',
-        isLoaded ? 'opacity-100' : 'opacity-0',
+        'transition-opacity duration-200',
+        canPlay ? 'opacity-100' : 'opacity-0',
         className
       )}
       autoPlay={autoPlay}
@@ -97,12 +103,14 @@ export function OptimizedVideo({
       controls={controls}
       preload={preload}
       poster={poster}
+      onCanPlay={() => setCanPlay(true)}
       onLoadedData={() => setIsLoaded(true)}
       onError={() => {
         // Fallback to original video if optimized versions fail
         if (videoRef.current) {
           videoRef.current.src = src;
           setIsLoaded(true);
+          setCanPlay(true);
         }
       }}
     >
