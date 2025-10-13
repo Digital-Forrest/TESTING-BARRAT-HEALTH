@@ -38,7 +38,7 @@ export function Header() {
         </Link>
         
         {/* Centered Navigation Menu */}
-        <NavigationMenu className="hidden md:flex flex-1 justify-center">
+        <NavigationMenu className="hidden md:flex flex-1 justify-center relative z-50">
           <NavigationMenuList className="flex items-center justify-center space-x-2">
             <NavigationMenuItem>
               <NavLink
