@@ -5,6 +5,15 @@ import { ApproachSection } from "./ContentSections";
 export function HeroSection() {
   return (
     <section className="hero-section relative min-h-screen flex flex-col overflow-hidden">
+      {/* Header Curve (explicit element for precise mobile control) */}
+      <div className="absolute top-0 left-0 right-0 z-30 pointer-events-none">
+        <img
+          src="https://media.inboundwizard.com/header-curve1.svg"
+          alt=""
+          aria-hidden="true"
+          className="w-full h-[clamp(64px,10vw,100px)] object-fill"
+        />
+      </div>
       {/* Video Background */}
       <video 
         autoPlay 
