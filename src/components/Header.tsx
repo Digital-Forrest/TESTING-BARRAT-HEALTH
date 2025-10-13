@@ -196,7 +196,7 @@ export function Header() {
       
       {/* Header Curve - only on home page */}
       {isHomePage && (
-        <div className="absolute top-20 left-0 right-0 z-10 pointer-events-none -mt-1 md:mt-0">
+        <div className="absolute top-20 left-0 right-0 z-10 pointer-events-none -mt-2 md:mt-0">
           <img
             src="https://media.inboundwizard.com/header-curve1.svg"
             alt=""

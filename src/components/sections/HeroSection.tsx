@@ -22,7 +22,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/40 z-10" />
       
       {/* Hero Content */}
-      <div className="relative z-20 flex-1 flex items-center justify-center">
+      <div className="relative z-20 flex-1 flex items-center justify-center pt-20 md:pt-0">
         <div className="container max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight tracking-wide">
             Supporting Teens and Adults to Thrive at Every Stage
