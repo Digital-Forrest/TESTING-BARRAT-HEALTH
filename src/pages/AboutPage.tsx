@@ -61,14 +61,34 @@ export function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div className="order-2 lg:order-1">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900">
-                Meet Kadija Conteh-Barrat
+                Kadija Conteh-Barrat, DNP, FNP-BC, PMHNP-BC
               </h2>
-              <p className="mt-4 text-lg text-gray-600">
-                Kadija is a board-certified Psychiatric-Mental Health Nurse Practitioner (PMHNP-BC) with a profound dedication to supporting individuals on their journey to mental wellness. Her practice is built on a foundation of empathy, evidence-based care, and a deep-seated belief in the resilience of the human spirit.
-              </p>
-              <p className="mt-4 text-gray-600">
-                With extensive experience across various psychiatric settings, Kadija specializes in treating a wide range of conditions, including anxiety, depression, ADHD, and mood disorders. She is passionate about creating a collaborative and trusting therapeutic relationship, empowering her clients to take an active role in their treatment and achieve their personal goals.
-              </p>
+              <div className="mt-4 space-y-4 text-gray-600">
+                <p>
+                  Kadija Conteh-Barrat, DNP, APRN, FNP-BC, PMHNP-BC, is a doctorally prepared, dual board-certified Family Nurse Practitioner and Psychiatric Mental Health Nurse Practitioner. With over a decade of experience in advanced clinical practice. She integrates behavioral health and primary care to deliver holistic, evidence-based treatment across the lifespan.
+                </p>
+                <p>
+                  Kadija is the founder and CEO of Barrat Behavioral Health and Primary Care, where she provides comprehensive psychiatric evaluations, medication management, and integrative care tailored to each patient's needs. She also serves as Adjunct Faculty at Yale University School of Nursing, where she mentors the next generation of healthcare leaders.
+                </p>
+                <p>
+                  Her career spans diverse clinical settings, including primary care, women's Health, community-based psychiatric care, crisis, addiction, and geriatric mental health.
+                </p>
+                <p>
+                  Kadija Conteh-Barrat is a recognized leader in nursing and mental health. She has received numerous honors, including the Outstanding Public Health Nurse Award from George Mason University and designation as an Emerging Healthcare Leader by United Health Group. She is also a recipient of the Inova Health System Edelman Institute for Nursing Excellence Scholarship and an AHEC scholar.
+                </p>
+                <p>
+                  Dedicated to advancing health equity and access, Kadija Conteh-Barrat is the President of the Manak Community Health Organization (MaCHO), a nonprofit she co-founded to expand healthcare access in underserved communities in Sierra Leone. Through a free community clinic, medical missions, and outreach, she works to bridge health disparities and improve quality of life for vulnerable populations.
+                </p>
+                <p>
+                  She is an active member of leading professional organizations, including the American Association of Nurse Practitioners, the American Psychiatric Nurses Association, American Nurses Association, and the Sigma Theta Tau Honor Society of Nursing.
+                </p>
+                <p>
+                  Passionate about patient-centered care, innovation, and community service, Kadija continues to drive change at the intersection of mental health and primary care—empowering individuals, families, and communities to achieve lasting wellness.
+                </p>
+                <p className="italic border-l-4 border-brand-orange pl-4 mt-6">
+                  "My journey to becoming a mental healthcare provider began with a deep passion for understanding the human experience and a commitment to caring for the whole person—mind, body, and spirit. As a nurse, I saw firsthand how mental health impacts every aspect of a person's well-being, often in ways that go unseen or untreated. That insight drove me to pursue dual board certification as a Family Nurse Practitioner and a Psychiatric Mental Health Nurse Practitioner. Over the past decade, I've had the privilege of walking alongside individuals and families during some of their most vulnerable moments. Each experience has reinforced my belief in compassionate, holistic care and the power of connection, healing, and resilience. This work is not just my profession—it's my calling." - Kadija Conteh-Barrat
+                </p>
+              </div>
               <div className="mt-8">
                 <Button asChild size="lg" className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-8 py-4 text-base transition-transform hover:scale-105">
                   <a href="https://care.headway.co/providers/kadija-conteh-barrat?utm_source=website&utm_medium=direct_link" target="_blank" rel="noopener noreferrer" aria-label="Book a session with Kadija">

@@ -12,7 +12,7 @@ export function WhyChooseUsSection() {
       <div className="container max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark-text">Why Choose Barrat Behavioral Health and Primary Care?</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark-text">Why Choose Barrat Behavioral Health & Primary Care?</h2>
             <p className="mt-4 text-lg text-neutral-gray font-body">
               We are committed to providing a safe, non-judgmental space where you can explore your challenges and discover your path to a more balanced and joyful life.
             </p>
