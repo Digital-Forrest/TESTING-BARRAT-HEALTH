@@ -10,7 +10,7 @@ const STATIC_ASSETS = [
 
 // External resources that should be cached aggressively
 const EXTERNAL_RESOURCES = [
-  'https://media.inboundwizard.com/Barratbhand-consulting%20main-logo.png',
+  'https://media.inboundwizard.com/barrat%20behavioral%20health%20and%20primary%20care.svg',
   'https://media.inboundwizard.com/videoBanner.mp4',
   'https://media.inboundwizard.com/header-curve1.svg',
   'https://media.inboundwizard.com/Rediscover_Wellness.mp4',

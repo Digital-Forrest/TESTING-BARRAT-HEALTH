@@ -34,9 +34,9 @@ export function Header() {
       
       <div className="container max-w-container h-20 flex items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo - Increased by 35% */}
-        <Link to="/" className="flex items-center flex-shrink-0" aria-label="Barrat Behavioral Health and Primary Care Home">
+        <Link to="/" className="flex items-center flex-shrink-0" aria-label="Barrat Behavioral Health & Primary Care Home">
           <OptimizedImage 
-            src="https://media.inboundwizard.com/Barratbhand-consulting%20main-logo.png" 
+            src="https://media.inboundwizard.com/barrat%20behavioral%20health%20and%20primary%20care.svg" 
             alt="Barrat Behavioral Health Logo" 
             className="h-14 w-auto" 
             priority={true}

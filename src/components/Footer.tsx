@@ -6,9 +6,9 @@ export function Footer() {
       <div className="container max-w-container mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2" aria-label="Barrat Behavioral Health and Primary Care Home">
+            <Link to="/" className="flex items-center gap-2" aria-label="Barrat Behavioral Health & Primary Care Home">
               <OptimizedImage 
-                src="https://media.inboundwizard.com/Barratbhand-consulting%20main-logo.png" 
+                src="https://media.inboundwizard.com/barrat%20behavioral%20health%20and%20primary%20care.svg" 
                 alt="Barrat Behavioral Health Logo" 
                 className="h-12 w-auto" 
                 priority={false}
@@ -46,9 +46,16 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-neutral-gray/30 pt-8 flex flex-col sm:flex-row justify-between items-center">
-          <p className="text-base text-neutral-gray font-body">&copy; {new Date().getFullYear()} Barrat Behavioral Health and Primary Care. All rights reserved.</p>
-          <p className="text-sm text-neutral-gray/70 mt-4 sm:mt-0 font-body">Built with Adsit Digital</p>
+        <div className="mt-12 border-t border-neutral-gray/30 pt-8">
+          <div className="mb-6 p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r">
+            <p className="text-sm text-gray-700 font-body leading-relaxed">
+              We are honored to support our community's emotional and physical wellness. If you are experiencing a medical emergency, feeling suicidal, depressed, or struggling with a difficult situation, please call or text the Help Crisis Line 988, call 911 or go to the nearest emergency room or crisis center. We are not a 24/7 emergency provider.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-between items-center">
+            <p className="text-base text-neutral-gray font-body">&copy; {new Date().getFullYear()} Barrat Behavioral Health & Primary Care. All rights reserved.</p>
+            <p className="text-sm text-neutral-gray/70 mt-4 sm:mt-0 font-body">Built with Adsit Digital</p>
+          </div>
         </div>
       </div>
     </footer>
