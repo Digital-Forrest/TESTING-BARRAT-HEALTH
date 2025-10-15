@@ -25,17 +25,26 @@ export function FounderSection() {
   return (
     <section className="bg-white py-20">
       <div className="container max-w-container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark-text">Led by Expertise and Compassion</h2>
-          <p className="mt-4 text-lg text-neutral-gray font-body">
-            Our practice is led by Kadija Conteh-Barrat, a dedicated and board-certified Psychiatric-Mental Health Nurse Practitioner. With a deep commitment to her clients' well-being, Kadija's mission is to destigmatize mental health and empower individuals to lead fulfilling lives.
-          </p>
-          <div className="mt-8">
-            <Button asChild variant="outline" className="border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-semibold rounded-md px-8 py-4 text-base transition-all duration-300">
-              <Link to="/about" aria-label="Meet Kadija">
-                Meet Kadija
-              </Link>
-            </Button>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark-text">Led by Expertise and Compassion</h2>
+            <p className="mt-4 text-lg text-neutral-gray font-body">
+              Our practice is led by Kadija Conteh-Barrat, a dedicated and board-certified Psychiatric-Mental Health Nurse Practitioner. With a deep commitment to her clients' well-being, Kadija's mission is to destigmatize mental health and empower individuals to lead fulfilling lives.
+            </p>
+            <div className="mt-8">
+              <Button asChild variant="outline" className="border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-semibold rounded-md px-8 py-4 text-base transition-all duration-300">
+                <Link to="/about" aria-label="Meet Kadija">
+                  Meet Kadija
+                </Link>
+              </Button>
+            </div>
+          </div>
+          <div>
+            <img
+              src="https://media.inboundwizard.com/Kadija%20Conteh-Barrat%20(1).png"
+              alt="Kadija Conteh-Barrat"
+              className="rounded-lg shadow-xl w-full h-auto object-cover aspect-square"
+            />
           </div>
         </div>
       </div>
