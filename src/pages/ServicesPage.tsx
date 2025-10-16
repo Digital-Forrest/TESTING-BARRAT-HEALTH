@@ -104,7 +104,7 @@ export function ServicesPage() {
           <div className="space-y-16">
             <div className="prose lg:prose-lg max-w-none prose-p:text-gray-700 prose-headings:font-display prose-headings:text-gray-900 prose-p:leading-relaxed">
               <h3>Initial Evaluation</h3>
-              <p>At Barrat Behavioral Health & Primary, we believe the first step toward healing and growth begins with truly understanding your unique needs. Our psychiatric evaluation is a comprehensive, compassionate, and patient-centered process designed to uncover the underlying factors that may be impacting your mental health and overall well-being.</p>
+              <p>At Barrat Behavioral Health & Primary Care, we believe the first step toward healing and growth begins with truly understanding your unique needs. Our psychiatric evaluation is a comprehensive, compassionate, and patient-centered process designed to uncover the underlying factors that may be impacting your mental health and overall well-being.</p>
               <h4 className="text-xl font-semibold text-gray-800">What to Expect</h4>
               <p>During your initial evaluation, our experienced psychiatric provider will take the time to listen to your story and learn about your medical, emotional, and social history. This is not just a checklist of symptoms—it is a collaborative conversation where you are encouraged to share your experiences, challenges, and goals in a safe and supportive environment.</p>
               <h4 className="text-xl font-semibold text-gray-800">Why It Matters</h4>
