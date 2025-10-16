@@ -37,19 +37,8 @@ export function BlogPostPage() {
       
       {/* Hero Section */}
       <section className="relative bg-light-gray overflow-hidden">
-        {/* Video Background */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-70"
-        >
-          <source src="https://media.inboundwizard.com/supporting%20pages%20background.webm" type="video/webm" />
-        </video>
-        
         {/* Content */}
-        <div className="relative z-10 container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="mb-8">
             <Button asChild variant="ghost" className="text-brand-orange font-semibold hover:text-brand-orange-dark p-0 hover:bg-transparent">
               <Link to="/blog" aria-label="Back to blog">
