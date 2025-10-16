@@ -1,4 +1,4 @@
-const CACHE_NAME = 'barrat-health-v1';
+const CACHE_NAME = 'barrat-health-v2-cors-fix';
 const STATIC_ASSETS = [
   '/',
   '/about',
@@ -9,15 +9,15 @@ const STATIC_ASSETS = [
   '/blog'
 ];
 
-// External resources that should be cached aggressively
+// External resources that should be cached aggressively (using CORS proxy)
 const EXTERNAL_RESOURCES = [
-  'https://media.inboundwizard.com/barrat%20behavioral%20health%20and%20primary%20care.svg',
-  'https://media.inboundwizard.com/videoBanner.mp4',
-  'https://media.inboundwizard.com/header-curve1.svg',
-  'https://media.inboundwizard.com/Rediscover_Wellness.mp4',
-  'https://media.inboundwizard.com/supporting%20pages%20background.webm',
-  'https://media.inboundwizard.com/insurance-carriers-accepted.png',
-  'https://media.inboundwizard.com/Kadija%20Conteh-Barrat%20(1).png'
+  '/media/barrat%20behavioral%20health%20and%20primary%20care.svg',
+  '/media/videoBanner.mp4',
+  '/media/header-curve1.svg',
+  '/media/Rediscover_Wellness.mp4',
+  '/media/supporting%20pages%20background.webm',
+  '/media/insurance-carriers-accepted.png',
+  '/media/Kadija%20Conteh-Barrat%20(1).png'
 ];
 
 // Cache strategies
