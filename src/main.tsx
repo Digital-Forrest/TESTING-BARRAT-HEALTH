@@ -110,7 +110,12 @@ const router = createBrowserRouter([
       },
     ]
   }
-]);
+], {
+  future: {
+    v7_startTransition: true,
+    v7_relativeSplatPath: true,
+  }
+});
 // Do not touch this code
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
