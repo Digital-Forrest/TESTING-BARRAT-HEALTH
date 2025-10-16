@@ -1,5 +1,4 @@
 import React, { Component, ErrorInfo, ReactNode } from "react";
-import { errorReporter } from "@/lib/errorReporter";
 import { ErrorFallback } from "./ErrorFallback";
 
 interface Props {
@@ -32,19 +31,25 @@ export class ErrorBoundary extends Component<Props, State> {
     // Update state with error info
     this.setState({ errorInfo });
 
-    // Report error to backend
-    if (errorReporter) {
-      errorReporter.report({
-        message: error.message,
-        stack: error.stack || "",
-        componentStack: errorInfo.componentStack,
-        errorBoundary: true,
-        errorBoundaryProps: {
-          componentName: this.constructor.name,
-        },
-        url: window.location.href,
-        timestamp: new Date().toISOString(),
-        level: "error",
+    // Report error to backend (only in development)
+    if (import.meta.env.DEV) {
+      import("@/lib/errorReporter").then(({ errorReporter }) => {
+        if (errorReporter) {
+          errorReporter.report({
+            message: error.message,
+            stack: error.stack || "",
+            componentStack: errorInfo.componentStack,
+            errorBoundary: true,
+            errorBoundaryProps: {
+              componentName: this.constructor.name,
+            },
+            url: window.location.href,
+            timestamp: new Date().toISOString(),
+            level: "error",
+          });
+        }
+      }).catch(() => {
+        // Silently fail if error reporter can't be loaded
       });
     }
   }

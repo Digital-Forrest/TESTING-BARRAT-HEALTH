@@ -1,6 +1,5 @@
 import { useRouteError, isRouteErrorResponse } from 'react-router-dom';
 import { useEffect } from 'react';
-import { errorReporter } from '@/lib/errorReporter';
 import { ErrorFallback } from './ErrorFallback';
 
 export function RouteErrorBoundary() {
@@ -26,15 +25,22 @@ export function RouteErrorBoundary() {
         errorMessage = JSON.stringify(error);
       }
 
-      if (errorReporter) {
-        errorReporter.report({
-          message: errorMessage,
-          stack: errorStack,
-          url: window.location.href,
-          timestamp: new Date().toISOString(),
-          source: 'react-router',
-          error: error,
-          level: "error",
+      // Only report errors in development
+      if (import.meta.env.DEV) {
+        import('@/lib/errorReporter').then(({ errorReporter }) => {
+          if (errorReporter) {
+            errorReporter.report({
+              message: errorMessage,
+              stack: errorStack,
+              url: window.location.href,
+              timestamp: new Date().toISOString(),
+              source: 'react-router',
+              error: error,
+              level: "error",
+            });
+          }
+        }).catch(() => {
+          // Silently fail if error reporter can't be loaded
         });
       }
     }
