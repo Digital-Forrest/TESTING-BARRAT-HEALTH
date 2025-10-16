@@ -21,6 +21,16 @@ export default {
     'text-brand-blue',
     'border-brand-blue',
     'hover:bg-brand-blue',
+    // Blog content classes (used in HTML strings)
+    'rounded-lg',
+    'shadow-lg',
+    'my-8',
+    'w-full',
+    'max-w-2xl',
+    'h-auto',
+    'object-cover',
+    'mx-auto',
+    'block',
   ],
   theme: {
   	extend: {
