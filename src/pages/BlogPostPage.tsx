@@ -10,17 +10,27 @@ export function BlogPostPage() {
   const [post, setPost] = useState<ReturnType<typeof getPostBySlug>>();
   const [error, setError] = useState<string | null>(null);
 
+  console.log('[BlogPostPage] Rendering with slug:', slug);
+
   useEffect(() => {
+    console.log('[BlogPostPage] useEffect triggered, slug:', slug);
     try {
       if (slug) {
+        console.log('[BlogPostPage] Calling getPostBySlug with:', slug);
         const foundPost = getPostBySlug(slug);
+        console.log('[BlogPostPage] Got post:', foundPost ? 'Found' : 'Not found');
         setPost(foundPost);
+      } else {
+        console.log('[BlogPostPage] No slug provided');
       }
     } catch (err) {
+      console.error('[BlogPostPage] Caught error:', err);
       setError(err instanceof Error ? err.message : 'Unknown error');
       console.error('Error loading blog post:', err);
     }
   }, [slug]);
+
+  console.log('[BlogPostPage] Current state - post:', !!post, 'error:', error);
 
   if (error) {
     return (
