@@ -1,17 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
   
-  const toggleVisibility = () => {
-    if (window.pageYOffset > 300) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
-  };
+  const toggleVisibility = useCallback(() => {
+    setIsVisible(window.pageYOffset > 300);
+  }, []);
   
   const scrollToTop = () => {
     window.scrollTo({
@@ -25,7 +21,7 @@ export function ScrollToTop() {
     return () => {
       window.removeEventListener("scroll", toggleVisibility);
     };
-  }, []);
+  }, [toggleVisibility]);
   
   if (!isVisible) return null;
   

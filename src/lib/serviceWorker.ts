@@ -1,3 +1,66 @@
+// Show update notification to user
+const showUpdateNotification = (): void => {
+  // Create a simple notification banner
+  const banner = document.createElement('div');
+  banner.id = 'sw-update-banner';
+  banner.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #ff6b35;
+    color: white;
+    padding: 16px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10000;
+    font-family: system-ui, -apple-system, sans-serif;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    max-width: 90%;
+  `;
+  
+  banner.innerHTML = `
+    <span>🔄 New content available! </span>
+    <button id="sw-reload-btn" style="
+      background: white;
+      color: #ff6b35;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+    ">Refresh</button>
+    <button id="sw-dismiss-btn" style="
+      background: transparent;
+      color: white;
+      border: 1px solid white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    ">Later</button>
+  `;
+  
+  document.body.appendChild(banner);
+  
+  // Handle reload
+  const reloadBtn = document.getElementById('sw-reload-btn');
+  if (reloadBtn) {
+    reloadBtn.addEventListener('click', () => {
+      window.location.reload();
+    });
+  }
+  
+  // Handle dismiss
+  const dismissBtn = document.getElementById('sw-dismiss-btn');
+  if (dismissBtn) {
+    dismissBtn.addEventListener('click', () => {
+      banner.remove();
+    });
+  }
+};
+
 // Service Worker registration and management
 export const registerServiceWorker = async (): Promise<ServiceWorkerRegistration | null> => {
   if ('serviceWorker' in navigator) {
@@ -16,7 +79,7 @@ export const registerServiceWorker = async (): Promise<ServiceWorkerRegistration
             if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
               // New content is available, notify user
               console.log('[SW] New content available, please refresh');
-              // You could show a notification to the user here
+              showUpdateNotification();
             }
           });
         }

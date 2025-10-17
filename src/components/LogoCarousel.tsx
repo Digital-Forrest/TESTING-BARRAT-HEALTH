@@ -51,7 +51,7 @@ export function LogoCarousel() {
         {/* Duplicate the logos array twice for seamless loop */}
         {[...logos, ...logos].map((logo, index) => (
           <div 
-            key={index} 
+            key={`logo-${index % logos.length}-${Math.floor(index / logos.length)}`}
             className="flex-shrink-0 w-[415px] h-[311px] flex items-center justify-center"
           >
             <img 

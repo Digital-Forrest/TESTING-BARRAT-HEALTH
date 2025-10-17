@@ -10,17 +10,14 @@ if (import.meta.env.PROD) {
   });
 }
 
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { StrictMode, lazy, Suspense } from 'react';
+import { createRoot } from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { RouteErrorBoundary } from '@/components/RouteErrorBoundary';
-import '@/index.css'
+import { LazyLoadErrorBoundary } from '@/components/LazyLoadErrorBoundary';
 import { Layout } from '@/components/Layout';
-import { lazy, Suspense } from 'react';
+import '@/index.css';
 
 // Lazy load pages for better performance
 const HomePage = lazy(() => import('@/pages/HomePage').then(m => ({ default: m.HomePage })));
@@ -33,6 +30,7 @@ const BlogPostPage = lazy(() => import('@/pages/BlogPostPage').then(m => ({ defa
 const ReferralsPage = lazy(() => import('@/pages/ReferralsPage').then(m => ({ default: m.ReferralsPage })));
 
 // Loading component
+// eslint-disable-next-line react-refresh/only-export-components
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen">
     <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-brand-orange"></div>
@@ -47,65 +45,81 @@ const router = createBrowserRouter([
       { 
         path: "/", 
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <HomePage />
-          </Suspense>
+          <LazyLoadErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <HomePage />
+            </Suspense>
+          </LazyLoadErrorBoundary>
         )
       },
       { 
         path: "/about", 
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <AboutPage />
-          </Suspense>
+          <LazyLoadErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <AboutPage />
+            </Suspense>
+          </LazyLoadErrorBoundary>
         )
       },
       { 
         path: "/services", 
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <ServicesPage />
-          </Suspense>
+          <LazyLoadErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <ServicesPage />
+            </Suspense>
+          </LazyLoadErrorBoundary>
         )
       },
       { 
         path: "/contact", 
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <ContactPage />
-          </Suspense>
+          <LazyLoadErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <ContactPage />
+            </Suspense>
+          </LazyLoadErrorBoundary>
         )
       },
       { 
         path: "/testimonials", 
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <TestimonialsPage />
-          </Suspense>
+          <LazyLoadErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <TestimonialsPage />
+            </Suspense>
+          </LazyLoadErrorBoundary>
         )
       },
       { 
         path: "/blog", 
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <BlogPage />
-          </Suspense>
+          <LazyLoadErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <BlogPage />
+            </Suspense>
+          </LazyLoadErrorBoundary>
         )
       },
       { 
         path: "/blog/:slug", 
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <BlogPostPage />
-          </Suspense>
+          <LazyLoadErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <BlogPostPage />
+            </Suspense>
+          </LazyLoadErrorBoundary>
         )
       },
       { 
         path: "/referrals", 
         element: (
-          <Suspense fallback={<PageLoader />}>
-            <ReferralsPage />
-          </Suspense>
+          <LazyLoadErrorBoundary>
+            <Suspense fallback={<PageLoader />}>
+              <ReferralsPage />
+            </Suspense>
+          </LazyLoadErrorBoundary>
         )
       },
     ]

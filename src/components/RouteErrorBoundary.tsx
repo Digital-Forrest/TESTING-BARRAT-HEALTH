@@ -5,10 +5,6 @@ import { ErrorFallback } from './ErrorFallback';
 export function RouteErrorBoundary() {
   const error = useRouteError();
 
-  console.error('[RouteErrorBoundary] Caught error:', error);
-  console.error('[RouteErrorBoundary] Error type:', typeof error);
-  console.error('[RouteErrorBoundary] Error keys:', error ? Object.keys(error) : 'null');
-
   useEffect(() => {
     // Report the route error
     if (error) {
@@ -16,24 +12,27 @@ export function RouteErrorBoundary() {
       let errorStack = '';
 
       if (isRouteErrorResponse(error)) {
-        console.error('[RouteErrorBoundary] Is RouteErrorResponse');
         errorMessage = `Route Error ${error.status}: ${error.statusText}`;
         if (error.data) {
           errorMessage += ` - ${JSON.stringify(error.data)}`;
         }
       } else if (error instanceof Error) {
-        console.error('[RouteErrorBoundary] Is Error instance:', error.message);
         errorMessage = error.message;
         errorStack = error.stack || '';
       } else if (typeof error === 'string') {
-        console.error('[RouteErrorBoundary] Is string:', error);
         errorMessage = error;
       } else {
-        console.error('[RouteErrorBoundary] Is other type');
         errorMessage = JSON.stringify(error);
       }
 
-      console.error('[RouteErrorBoundary] Final error message:', errorMessage);
+      // Log errors only in development
+      if (import.meta.env.DEV) {
+        console.error('[RouteErrorBoundary] Caught error:', {
+          message: errorMessage,
+          type: typeof error,
+          stack: errorStack
+        });
+      }
 
       // Only report errors in development
       if (import.meta.env.DEV) {

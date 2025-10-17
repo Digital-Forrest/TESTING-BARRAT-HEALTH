@@ -32,7 +32,7 @@ export function OptimizedVideo({
   const [canPlay, setCanPlay] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { videoQuality, preloadImages } = useMobileOptimization();
+  const { preloadImages } = useMobileOptimization();
 
   useEffect(() => {
     if (priority || preloadImages) {
@@ -59,23 +59,6 @@ export function OptimizedVideo({
 
     return () => observer.disconnect();
   }, [priority, preloadImages]);
-
-  // Generate optimized video URLs
-  const generateVideoSrc = (baseSrc: string, format: string) => {
-    // For hero video (priority), don't add quality parameters that might slow down CDN
-    if (priority) {
-      return baseSrc; // Use original URL for hero video
-    }
-    
-    const params = new URLSearchParams({
-      format,
-      quality: videoQuality
-    });
-    return `${baseSrc}?${params.toString()}`;
-  };
-
-  const webmSrc = generateVideoSrc(src, 'webm');
-  const mp4Src = generateVideoSrc(src, 'mp4');
 
   if (!shouldLoad) {
     return (
@@ -105,17 +88,14 @@ export function OptimizedVideo({
       poster={poster}
       onCanPlay={() => setCanPlay(true)}
       onLoadedData={() => setIsLoaded(true)}
-      onError={() => {
-        // Fallback to original video if optimized versions fail
-        if (videoRef.current) {
-          videoRef.current.src = src;
-          setIsLoaded(true);
-          setCanPlay(true);
+      onError={(e) => {
+        if (import.meta.env.DEV) {
+          console.error('Failed to load video:', src);
         }
+        setIsLoaded(true);
+        setCanPlay(true);
       }}
     >
-      <source src={webmSrc} type="video/webm" />
-      <source src={mp4Src} type="video/mp4" />
       <source src={src} type="video/mp4" />
       {/* Fallback for browsers that don't support video */}
       <div className="absolute inset-0 bg-gradient-to-br from-brand-orange to-brand-blue flex items-center justify-center">

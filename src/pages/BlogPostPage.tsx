@@ -4,57 +4,46 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { useEffect, useState } from "react";
+import DOMPurify from "dompurify";
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<ReturnType<typeof getPostBySlug>>();
   const [error, setError] = useState<string | null>(null);
-
-  console.log('[BlogPostPage] Rendering with slug:', slug);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    console.log('[BlogPostPage] useEffect triggered, slug:', slug);
+    setIsLoading(true);
     try {
       if (slug) {
-        console.log('[BlogPostPage] Calling getPostBySlug with:', slug);
-        const foundPost = getPostBySlug(slug);
-        console.log('[BlogPostPage] Got post:', foundPost ? 'Found' : 'Not found');
+        // Normalize slug to lowercase for case-insensitive matching
+        const foundPost = getPostBySlug(slug.toLowerCase());
         setPost(foundPost);
+        setError(foundPost ? null : 'Post not found');
       } else {
-        console.log('[BlogPostPage] No slug provided');
+        setError('No slug provided');
       }
     } catch (err) {
-      console.error('[BlogPostPage] Caught error:', err);
       setError(err instanceof Error ? err.message : 'Unknown error');
-      console.error('Error loading blog post:', err);
+      if (import.meta.env.DEV) {
+        console.error('Error loading blog post:', err);
+      }
+    } finally {
+      setIsLoading(false);
     }
   }, [slug]);
 
-  console.log('[BlogPostPage] Current state - post:', !!post, 'error:', error);
-
-  if (error) {
+  if (isLoading) {
     return (
-      <>
-        <SEO
-          title="Error Loading Post"
-          description="There was an error loading this blog post."
-        />
-        <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
-          <h1 className="text-4xl font-display font-bold text-gray-900">Error Loading Post</h1>
-          <p className="mt-4 text-lg text-gray-600">Error: {error}</p>
-          <div className="mt-8">
-            <Button asChild variant="outline" className="border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white font-semibold rounded-lg px-6 py-3 text-base transition-colors border-2">
-              <Link to="/blog" aria-label="Back to blog">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Blog
-              </Link>
-            </Button>
-          </div>
+      <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+        <div className="flex items-center justify-center min-h-[400px]">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-brand-orange"></div>
         </div>
-      </>
+      </div>
     );
   }
-  if (!post) {
+
+  if (error || !post) {
     return (
       <>
         <SEO
@@ -108,13 +97,14 @@ export function BlogPostPage() {
       <section className="py-16 md:py-24">
         <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <article className="prose lg:prose-xl max-w-none prose-p:text-gray-700 prose-headings:font-display prose-headings:text-gray-900 prose-p:leading-relaxed">
-            {/*
-              SECURITY WARNING: The content is rendered using dangerouslySetInnerHTML.
-              In a real-world application, this content should be sanitized using a library
-              like DOMPurify to prevent XSS attacks before being rendered.
-              For this project, we are trusting the source of the blog content.
-            */}
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <div 
+              dangerouslySetInnerHTML={{ 
+                __html: DOMPurify.sanitize(post.content, {
+                  ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img'],
+                  ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'class']
+                })
+              }} 
+            />
           </article>
         </div>
       </section>

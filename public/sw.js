@@ -1,4 +1,6 @@
-const CACHE_NAME = 'barrat-health-v3-spa-routing-fix';
+// Generate cache name with timestamp to ensure updates on new deployments
+const CACHE_VERSION = '4.0.0';
+const CACHE_NAME = `barrat-health-v${CACHE_VERSION}-${self.__BUILD_ID__ || Date.now()}`;
 const STATIC_ASSETS = [
   '/',
   '/about',
@@ -253,8 +255,8 @@ self.addEventListener('push', (event) => {
     const data = event.data.json();
     const options = {
       body: data.body,
-      icon: '/favicon.png',
-      badge: '/favicon.png',
+      icon: '/favicon.svg',
+      badge: '/favicon.svg',
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),

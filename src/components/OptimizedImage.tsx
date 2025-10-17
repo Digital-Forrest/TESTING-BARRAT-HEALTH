@@ -26,10 +26,7 @@ export function OptimizedImage({
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(priority);
   const imgRef = useRef<HTMLImageElement>(null);
-  const { imageQuality, preloadImages } = useMobileOptimization();
-  
-  // Use mobile-optimized quality if not specified
-  const finalQuality = quality || imageQuality;
+  const { preloadImages } = useMobileOptimization();
 
   useEffect(() => {
     if (priority || preloadImages) {
@@ -57,21 +54,6 @@ export function OptimizedImage({
     return () => observer.disconnect();
   }, [priority, preloadImages]);
 
-  // Generate optimized image URLs with different formats
-  const generateSrcSet = (baseSrc: string, format: string) => {
-    const params = new URLSearchParams({
-      format,
-      quality: finalQuality.toString(),
-      ...(width && { w: width.toString() }),
-      ...(height && { h: height.toString() })
-    });
-    return `${baseSrc}?${params.toString()}`;
-  };
-
-  const baseSrc = src;
-  const webpSrc = generateSrcSet(baseSrc, 'webp');
-  const avifSrc = generateSrcSet(baseSrc, 'avif');
-
   if (!isInView) {
     return (
       <div
@@ -84,32 +66,28 @@ export function OptimizedImage({
   }
 
   return (
-    <picture>
-      <source srcSet={avifSrc} type="image/avif" />
-      <source srcSet={webpSrc} type="image/webp" />
-      <img
-        ref={imgRef}
-        src={baseSrc}
-        alt={alt}
-        className={cn(
-          'transition-opacity duration-300',
-          isLoaded ? 'opacity-100' : 'opacity-0',
-          className
-        )}
-        loading={priority ? 'eager' : 'lazy'}
-        decoding="async"
-        width={width}
-        height={height}
-        sizes={sizes}
-        onLoad={() => setIsLoaded(true)}
-        onError={() => {
-          // Fallback to original image if optimized versions fail
-          if (imgRef.current) {
-            imgRef.current.src = baseSrc;
-            setIsLoaded(true);
-          }
-        }}
-      />
-    </picture>
+    <img
+      ref={imgRef}
+      src={src}
+      alt={alt}
+      className={cn(
+        'transition-opacity duration-300',
+        isLoaded ? 'opacity-100' : 'opacity-0',
+        className
+      )}
+      loading={priority ? 'eager' : 'lazy'}
+      decoding="async"
+      width={width}
+      height={height}
+      sizes={sizes}
+      onLoad={() => setIsLoaded(true)}
+      onError={(e) => {
+        // Log error in development only
+        if (import.meta.env.DEV) {
+          console.error('Failed to load image:', src);
+        }
+        setIsLoaded(true);
+      }}
+    />
   );
 }

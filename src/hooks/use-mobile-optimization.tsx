@@ -10,6 +10,20 @@ interface MobileOptimizationConfig {
   connectionType: 'slow' | 'fast' | 'unknown';
 }
 
+// Type definitions for Network Information API
+interface NetworkInformation extends EventTarget {
+  readonly effectiveType?: '4g' | '3g' | '2g' | 'slow-2g';
+  readonly downlink?: number;
+  readonly rtt?: number;
+  readonly saveData?: boolean;
+}
+
+interface NavigatorWithConnection extends Navigator {
+  readonly connection?: NetworkInformation;
+  readonly mozConnection?: NetworkInformation;
+  readonly webkitConnection?: NetworkInformation;
+}
+
 export function useMobileOptimization(): MobileOptimizationConfig {
   const isMobile = useIsMobile();
   
@@ -17,9 +31,11 @@ export function useMobileOptimization(): MobileOptimizationConfig {
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    // Check connection type (if available)
-    const connection = (navigator as any).connection || (navigator as any).mozConnection || (navigator as any).webkitConnection;
-    const isSlowConnection = connection && (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g');
+    // Check connection type (if available) with proper types
+    const nav = navigator as NavigatorWithConnection;
+    const connection = nav.connection || nav.mozConnection || nav.webkitConnection;
+    const isSlowConnection = connection && 
+      (connection.effectiveType === 'slow-2g' || connection.effectiveType === '2g');
     
     if (isMobile) {
       return {

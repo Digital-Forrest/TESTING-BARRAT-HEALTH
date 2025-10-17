@@ -12,9 +12,8 @@ export function ReferralsPage() {
 
     return () => {
       // Cleanup script on component unmount
-      const existingScript = document.querySelector('script[src="https://api.ad-crm.com/js/form_embed.js"]');
-      if (existingScript) {
-        document.head.removeChild(existingScript);
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
       }
     };
   }, []);
