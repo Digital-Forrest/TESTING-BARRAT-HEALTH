@@ -24,7 +24,26 @@ const app = new Hono<{ Bindings: Env }>();
 
 app.use('*', logger());
 
-app.use('/api/*', cors({ origin: '*', allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], allowHeaders: ['Content-Type', 'Authorization'] }));
+// CORS configuration for API routes
+const corsConfig = {
+  origin: ['https://inboundwizard.com', 'https://www.inboundwizard.com', 'https://media.inboundwizard.com', 'http://localhost:5173'],
+  allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Authorization', 'Accept'],
+  exposeHeaders: ['Content-Length', 'X-Request-Id'],
+  credentials: true,
+  maxAge: 600
+};
+
+app.use('/api/*', cors(corsConfig));
+
+// Add CORS for media proxy routes
+app.use('/media/*', cors({
+  origin: ['https://inboundwizard.com', 'https://www.inboundwizard.com', 'https://media.inboundwizard.com'],
+  allowMethods: ['GET', 'OPTIONS'],
+  allowHeaders: ['Content-Type', 'Accept', 'Range'],
+  exposeHeaders: ['Content-Length', 'Content-Type', 'Accept-Ranges'],
+  maxAge: 86400 // 24 hours
+}));
 
 userRoutes(app);
 app.get('/api/health', (c) => c.json({ success: true, data: { status: 'healthy', timestamp: new Date().toISOString() }}));

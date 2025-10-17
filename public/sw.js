@@ -1,5 +1,5 @@
 // Generate cache name with timestamp to ensure updates on new deployments
-const CACHE_VERSION = '4.1.0';
+const CACHE_VERSION = '4.2.0';
 const CACHE_NAME = `barrat-health-v${CACHE_VERSION}-${self.__BUILD_ID__ || Date.now()}`;
 const STATIC_ASSETS = [
   '/',
@@ -11,15 +11,15 @@ const STATIC_ASSETS = [
   '/blog'
 ];
 
-// External resources that should be cached aggressively (using CORS proxy)
+// External resources from CDN that should be cached
 const EXTERNAL_RESOURCES = [
-  '/media/barrat%20behavioral%20health%20and%20primary%20care.svg',
-  '/media/videoBanner.mp4',
-  '/media/header-curve1.svg',
-  '/media/Rediscover_Wellness.mp4',
-  '/media/supporting%20pages%20background.webm',
-  '/media/insurance-carriers-accepted.png',
-  '/media/Kadija%20Conteh-Barrat%20(1).png'
+  'https://media.inboundwizard.com/barrat%20behavioral%20health%20and%20primary%20care.svg',
+  'https://media.inboundwizard.com/videoBanner.mp4',
+  'https://media.inboundwizard.com/header-curve1.svg',
+  'https://media.inboundwizard.com/Rediscover_Wellness.mp4',
+  'https://media.inboundwizard.com/supporting%20pages%20background.webm',
+  'https://media.inboundwizard.com/insurance-carriers-accepted.png',
+  'https://media.inboundwizard.com/Kadija%20Conteh-Barrat%20(1).png'
 ];
 
 // Cache strategies
@@ -133,7 +133,9 @@ self.addEventListener('fetch', (event) => {
 
 // Helper functions
 function isExternalResource(url) {
-  return EXTERNAL_RESOURCES.some(resource => url.includes(resource.split('/').pop()));
+  // Check if URL matches any of our external CDN resources
+  return EXTERNAL_RESOURCES.some(resource => url.includes(resource)) || 
+         url.includes('media.inboundwizard.com');
 }
 
 function isStaticAsset(pathname) {
