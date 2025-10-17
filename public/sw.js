@@ -1,4 +1,4 @@
-const CACHE_NAME = 'barrat-health-v2-cors-fix';
+const CACHE_NAME = 'barrat-health-v3-spa-routing-fix';
 const STATIC_ASSETS = [
   '/',
   '/about',
@@ -117,6 +117,9 @@ self.addEventListener('fetch', (event) => {
     event.respondWith(networkFirst(request));
   } else if (isPageRequest(url.pathname)) {
     event.respondWith(staleWhileRevalidate(request));
+  } else if (isSpaRoute(url.pathname)) {
+    // For SPA routes, serve index.html but don't cache the route response
+    event.respondWith(serveIndexHtml(request));
   } else {
     event.respondWith(networkFirst(request));
   }
@@ -136,7 +139,17 @@ function isApiRequest(pathname) {
 }
 
 function isPageRequest(pathname) {
-  return !pathname.includes('.') || pathname.endsWith('/');
+  // For SPA, only treat the root path as a page request
+  // All other routes should be handled by React Router
+  return pathname === '/' || pathname === '/index.html';
+}
+
+function isSpaRoute(pathname) {
+  // Check if this is a SPA route (no file extension, not API, not static asset)
+  return !pathname.includes('.') && 
+         !pathname.startsWith('/api/') && 
+         pathname !== '/' && 
+         pathname !== '/index.html';
 }
 
 // Cache strategies
@@ -193,6 +206,33 @@ async function staleWhileRevalidate(request) {
 
   // Return cached version immediately if available, otherwise wait for network
   return cachedResponse || fetchPromise;
+}
+
+async function serveIndexHtml(request) {
+  // For SPA routes, always serve the main index.html
+  // This allows React Router to handle client-side routing
+  const indexRequest = new Request('/', {
+    method: request.method,
+    headers: request.headers
+  });
+  
+  try {
+    const cachedIndex = await caches.match(indexRequest);
+    if (cachedIndex) {
+      return cachedIndex;
+    }
+    
+    // If not cached, fetch from network
+    const networkResponse = await fetch(indexRequest);
+    if (networkResponse.ok) {
+      const cache = await caches.open(CACHE_NAME);
+      cache.put(indexRequest, networkResponse.clone());
+    }
+    return networkResponse;
+  } catch (error) {
+    console.error('[SW] Failed to serve index.html:', error);
+    return new Response('Offline', { status: 503 });
+  }
 }
 
 // Background sync for offline form submissions
