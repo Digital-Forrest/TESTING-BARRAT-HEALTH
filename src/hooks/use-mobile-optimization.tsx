@@ -71,3 +71,4 @@ export function useConditionalLoading() {
     shouldReduceQuality: connectionType === 'slow'
   };
 }
+

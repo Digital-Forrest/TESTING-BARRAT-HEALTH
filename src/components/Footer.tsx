@@ -1,35 +1,28 @@
 import { Link } from "react-router-dom";
-import { OptimizedImage } from "@/components/OptimizedImage";
+
 export function Footer() {
   return (
-    <footer className="footer-wave bg-white text-dark-text">
-      <div className="container max-w-container mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <footer className="bg-gray-800 text-gray-300">
+      <div className="container max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2" aria-label="Barrat Behavioral Health & Primary Care Home">
-              <OptimizedImage 
-                src="/media/barrat%20behavioral%20health%20and%20primary%20care.svg" 
-                alt="Barrat Behavioral Health Logo" 
-                className="h-12 w-auto" 
-                priority={false}
-                width={150}
-                height={48}
-              />
+            <Link to="/" className="flex items-center gap-2" aria-label="Barrat Behavioral Health and Primary Care Home">
+              <img src="https://media.barratbhandconsulting.com/Barratbhand-consulting%20main-logo.png" alt="Barrat Behavioral Health Logo" className="h-12 w-auto" />
+              <span className="font-bold text-xl text-white">Barrat Behavioral Health</span>
             </Link>
-            <p className="text-sm text-neutral-gray font-body">Supporting teens and adults to thrive at every stage.</p>
+            <p className="text-sm">Supporting teens and adults to thrive at every stage.</p>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-dark-text tracking-wider uppercase font-heading">Quick Links</h3>
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Quick Links</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link to="/about" className="text-base text-neutral-gray hover:text-primary-blue transition-colors duration-300 font-body" aria-label="About">About Us</Link></li>
-              <li><Link to="/services" className="text-base text-neutral-gray hover:text-primary-blue transition-colors duration-300 font-body" aria-label="Services">Services</Link></li>
-              <li><Link to="/referrals" className="text-base text-neutral-gray hover:text-primary-blue transition-colors duration-300 font-body" aria-label="Referrals">Referrals</Link></li>
-              <li><Link to="/blog" className="text-base text-neutral-gray hover:text-primary-blue transition-colors duration-300 font-body" aria-label="Blog">Blog</Link></li>
+              <li><Link to="/about" className="text-base text-gray-300 hover:text-white" aria-label="About">About Us</Link></li>
+              <li><Link to="/services" className="text-base text-gray-300 hover:text-white" aria-label="Services">Services</Link></li>
+              <li><Link to="/blog" className="text-base text-gray-300 hover:text-white" aria-label="Blog">Blog</Link></li>
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-dark-text tracking-wider uppercase font-heading">Contact</h3>
-            <ul className="mt-4 space-y-2 text-base font-body text-neutral-gray">
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Contact</h3>
+            <ul className="mt-4 space-y-2 text-base">
               <li>1346 Old Bridge Road, Suite 101</li>
               <li>Woodbridge, VA 22192</li>
               <li className="pt-2">Phone: 571-543-4880</li>
@@ -39,26 +32,20 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="text-sm font-semibold text-dark-text tracking-wider uppercase font-heading">Get Help</h3>
+            <h3 className="text-sm font-semibold text-white tracking-wider uppercase">Get Help</h3>
             <div className="mt-4">
-              <Link to="/contact" className="inline-block bg-brand-blue text-white font-semibold py-3 px-6 rounded-md hover:bg-brand-blue/90 transition-all duration-300 hover:scale-105 font-heading" aria-label="Book an appointment">
+              <a href="https://care.headway.co/providers/kadija-conteh-barrat?utm_source=website&utm_medium=direct_link" target="_blank" rel="noopener noreferrer" className="inline-block bg-brand-orange text-white font-semibold py-3 px-6 rounded-lg hover:bg-brand-orange-dark transition-colors" aria-label="Book an appointment">
                 Book an Appointment
-              </Link>
+              </a>
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-neutral-gray/30 pt-8">
-          <div className="mb-6 p-4 bg-amber-50 border-l-4 border-amber-500 rounded-r">
-            <p className="text-sm text-gray-700 font-body leading-relaxed">
-              We are honored to support our community's emotional and physical wellness. If you are experiencing a medical emergency, feeling suicidal, depressed, or struggling with a difficult situation, please call or text the Help Crisis Line 988, call 911 or go to the nearest emergency room or crisis center. We are not a 24/7 emergency provider.
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row justify-between items-center">
-            <p className="text-base text-neutral-gray font-body">&copy; {new Date().getFullYear()} Barrat Behavioral Health & Primary Care. All rights reserved.</p>
-            <p className="text-sm text-neutral-gray/70 mt-4 sm:mt-0 font-body">Built with Adsit Digital</p>
-          </div>
+        <div className="mt-12 border-t border-gray-700 pt-8 flex flex-col sm:flex-row justify-between items-center">
+          <p className="text-base text-gray-400">&copy; {new Date().getFullYear()} Barrat Behavioral Health and Primary Care. All rights reserved.</p>
+          <p className="text-sm text-gray-500 mt-4 sm:mt-0">Built with ❤️ at Cloudflare</p>
         </div>
       </div>
     </footer>
   );
 }
+
