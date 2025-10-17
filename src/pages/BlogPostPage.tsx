@@ -4,33 +4,57 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { useEffect, useState } from "react";
-import DOMPurify from "dompurify";
+
+// Lazy load DOMPurify to avoid blocking the component load
+let DOMPurify: typeof import("dompurify").default | null = null;
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<ReturnType<typeof getPostBySlug>>();
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [sanitizedContent, setSanitizedContent] = useState<string>("");
 
   useEffect(() => {
-    setIsLoading(true);
-    try {
-      if (slug) {
-        // Normalize slug to lowercase for case-insensitive matching
-        const foundPost = getPostBySlug(slug.toLowerCase());
-        setPost(foundPost);
-        setError(foundPost ? null : 'Post not found');
-      } else {
-        setError('No slug provided');
+    const loadPostAndSanitizer = async () => {
+      setIsLoading(true);
+      try {
+        // Load DOMPurify if not already loaded
+        if (!DOMPurify) {
+          const module = await import("dompurify");
+          DOMPurify = module.default;
+        }
+
+        if (slug) {
+          // Normalize slug to lowercase for case-insensitive matching
+          const foundPost = getPostBySlug(slug.toLowerCase());
+          
+          if (foundPost) {
+            setPost(foundPost);
+            // Sanitize the content
+            const sanitized = DOMPurify.sanitize(foundPost.content, {
+              ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img'],
+              ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'class', 'style']
+            });
+            setSanitizedContent(sanitized);
+            setError(null);
+          } else {
+            setError('Post not found');
+          }
+        } else {
+          setError('No slug provided');
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Unknown error');
+        if (import.meta.env.DEV) {
+          console.error('Error loading blog post:', err);
+        }
+      } finally {
+        setIsLoading(false);
       }
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Unknown error');
-      if (import.meta.env.DEV) {
-        console.error('Error loading blog post:', err);
-      }
-    } finally {
-      setIsLoading(false);
-    }
+    };
+
+    loadPostAndSanitizer();
   }, [slug]);
 
   if (isLoading) {
@@ -99,10 +123,7 @@ export function BlogPostPage() {
           <article className="prose lg:prose-xl max-w-none prose-p:text-gray-700 prose-headings:font-display prose-headings:text-gray-900 prose-p:leading-relaxed">
             <div 
               dangerouslySetInnerHTML={{ 
-                __html: DOMPurify.sanitize(post.content, {
-                  ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img'],
-                  ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'class']
-                })
+                __html: sanitizedContent
               }} 
             />
           </article>
