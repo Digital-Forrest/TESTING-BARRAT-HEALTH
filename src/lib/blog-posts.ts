@@ -48,7 +48,7 @@ export const posts: Post[] = [
   {
     title: "The Importance of a Psychiatric Evaluation: What to Expect",
     excerpt: "A psychiatric evaluation is a structured yet compassionate conversation with a licensed provider, designed to bring clarity and empowerment to your mental health journey.",
-    date: "June 19, 2024",
+    date: "June 19, 2025",
     slug: "psychiatric-evaluation-what-to-expect",
     content: `
       <p>Taking the first step toward addressing your mental health can feel intimidating, and the term "psychiatric evaluation" might sound clinical or even scary. However, at its core, a psychiatric evaluation is a structured yet compassionate conversation with a licensed provider. It’s not a test you can pass or fail. Instead, it is a collaborative process designed to understand your unique story, identify challenges, and create a clear, personalized path toward wellness. It is the foundational step that ensures your treatment plan is tailored specifically to you, moving beyond guesswork to provide effective, evidence-based care.</p>
@@ -66,7 +66,7 @@ export const posts: Post[] = [
   {
     title: "Immigration Psychological Evaluations: How They Support Legal Cases",
     excerpt: "These evaluations provide crucial, objective evidence of the mental and emotional hardship faced by individuals, giving a human voice to a legal file.",
-    date: "June 12, 2024",
+    date: "July 12, 2025",
     slug: "immigration-psychological-evaluations",
     content: `
       <p>Navigating the U.S. immigration process can be one of the most stressful and emotionally taxing experiences in a person’s life. The journey is often fraught with uncertainty, fear, and the weight of a complex legal system. In this context, an Immigration Psychological Evaluation can be a powerful and essential tool. Conducted by a licensed mental health professional, these evaluations provide crucial, objective evidence of the mental and emotional hardship faced by individuals and families. They are more than clinical reports—they are meticulously documented human stories of resilience, hardship, and hope, designed to support legal cases such as Asylum, Hardship Waivers, and VAWA petitions.</p>
@@ -84,7 +84,7 @@ export const posts: Post[] = [
   {
     title: "Breaking the Stigma: Why Mental Health Care Matters for Everyone",
     excerpt: "Stigma remains one of the biggest barriers to mental health care, but seeking help is a sign of strength, not weakness. It's time to change the conversation.",
-    date: "June 5, 2024",
+    date: "September 5, 2025",
     slug: "breaking-the-stigma-mental-health",
     content: `
       <p>For generations, mental health has been a topic whispered about in hushed tones, shrouded in misunderstanding and fear. Despite significant progress, stigma remains one of the biggest barriers preventing people from seeking the care they need and deserve. It's the subtle judgment, the misconception that mental health struggles are a sign of weakness or a character flaw, and the fear of being treated differently by friends, family, or employers. This stigma creates a culture of silence that can be incredibly isolating and dangerous. It's time to challenge these outdated beliefs and champion a new understanding: mental health care is a fundamental component of overall health, and seeking support is an act of profound strength and self-awareness.</p>
@@ -102,7 +102,7 @@ export const posts: Post[] = [
   {
     title: "Understanding Anxiety in Teens",
     excerpt: "Learn to recognize the signs of anxiety in teenagers and discover effective strategies to provide support.",
-    date: "May 15, 2024",
+    date: "August 15, 2025",
     slug: "understanding-anxiety-in-teens",
     content: `
       <p>The teenage years are a period of immense growth, change, and, often, stress. While it's normal for teens to experience occasional worry, a persistent and overwhelming sense of anxiety can significantly impact their well-being and daily functioning. Understanding the nuances of teenage anxiety is the first crucial step for parents, educators, and caregivers to provide meaningful support. It's more than just exam jitters or social awkwardness; it's a serious mental health condition that requires compassion and proactive care.</p>
@@ -122,7 +122,7 @@ export const posts: Post[] = [
   {
     title: "The Role of Medication in Mental Health",
     excerpt: "An overview of how medication can be a helpful tool in a comprehensive mental health treatment plan.",
-    date: "May 10, 2024",
+    date: "May 10, 2025",
     slug: "role-of-medication",
     content: `
       <p>The conversation around mental health medication is often complex, filled with questions, concerns, and sometimes, misconceptions. For many, medication can be a transformative tool that provides the stability needed to engage in therapy and reclaim a sense of well-being. It's crucial to understand that medication is not a "quick fix" or a substitute for other forms of care. Instead, it is one component of a comprehensive, holistic treatment plan designed to support your unique journey toward mental wellness. The decision to incorporate medication is a deeply personal one, made in collaboration with a qualified healthcare provider who understands your history, symptoms, and goals.</p>
@@ -141,7 +141,7 @@ export const posts: Post[] = [
   {
     title: "Building Resilience: Bouncing Back from Setbacks",
     excerpt: "Explore practical techniques for developing mental and emotional resilience in your daily life.",
-    date: "May 5, 2024",
+    date: "May 5, 2025",
     slug: "building-resilience",
     content: `
       <p>Life is inherently filled with challenges, from minor daily stressors to significant life-altering events. Resilience is the psychological strength that allows us to navigate these adversities, adapt to change, and bounce back from setbacks. It's not about being untouched by difficulty or suppressing emotions; rather, it's the process of harnessing inner strength and external resources to move through hardship and emerge stronger. The encouraging truth is that resilience is not an innate trait reserved for a select few—it is a skill that can be cultivated and strengthened over time through intentional practice, mindset shifts, and supportive relationships.</p>
@@ -160,7 +160,7 @@ export const posts: Post[] = [
   {
     title: "Navigating Depression: A Guide to Finding Light",
     excerpt: "A compassionate guide to understanding depression and the first steps towards seeking help and recovery.",
-    date: "April 28, 2024",
+    date: "April 28, 2025",
     slug: "navigating-depression",
     content: `
       <p>Depression is far more than just a fleeting feeling of sadness; it is a persistent and pervasive mood disorder that can cast a shadow over every aspect of a person's life. It can drain your energy, steal your joy, and make even the simplest tasks feel insurmountable. Understanding depression is the first step toward navigating a path out of the darkness. It is a legitimate medical condition, not a sign of weakness or a character flaw, and it affects millions of people from all walks of life. Recognizing its symptoms and knowing that effective treatments are available can provide a crucial glimmer of hope during what can feel like an isolating and overwhelming experience.</p>
@@ -179,7 +179,7 @@ export const posts: Post[] = [
   {
     title: "The Importance of Self-Care for Mental Wellness",
     excerpt: "Discover why self-care is not a luxury but a necessity for maintaining good mental health, with practical tips.",
-    date: "April 22, 2024",
+    date: "April 22, 2025",
     slug: "importance-of-self-care",
     content: `
       <p>In our modern, fast-paced culture, "self-care" is a term that's often misunderstood. It's frequently portrayed as an indulgence—a luxury reserved for those with ample free time, like spa days or expensive vacations. However, true self-care is far from frivolous. It is the essential and intentional practice of activities that protect our physical, mental, and emotional well-being. It's not about escaping our lives, but about actively building a life we don't need to escape from. Prioritizing self-care is one of the most effective strategies for managing stress, preventing burnout, and fostering a resilient and positive state of mind. It is a fundamental necessity for navigating the demands of daily life with grace and strength.</p>
@@ -198,7 +198,7 @@ export const posts: Post[] = [
   {
     title: "ADHD in Adults: Myths and Realities",
     excerpt: "Debunking common misconceptions about adult ADHD and exploring effective management strategies.",
-    date: "April 15, 2024",
+    date: "March 15, 2025",
     slug: "adhd-in-adults",
     content: `
       <p>Attention-Deficit/Hyperactivity Disorder (ADHD) is widely recognized as a childhood condition, but a persistent and damaging myth is that people simply "grow out of it." The reality is that for a majority of individuals, ADHD is a lifelong neurodevelopmental condition that continues into adulthood, presenting a unique set of challenges and strengths. Adult ADHD is often misunderstood and misdiagnosed, frequently dismissed as laziness, a lack of willpower, or character flaws. This misunderstanding can lead to years of struggle, frustration, and a diminished sense of self-worth. Recognizing ADHD for what it is—a difference in brain wiring and executive function—is the first step toward effective management and harnessing its unique advantages.</p>

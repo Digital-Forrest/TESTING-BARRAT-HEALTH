@@ -39,30 +39,7 @@ export function LogoCarousel() {
   }, []);
 
   return (
-    <div className="w-full overflow-hidden bg-transparent py-[19px]">
-      <div 
-        ref={scrollRef}
-        className="flex gap-16 overflow-hidden"
-        style={{ 
-          scrollBehavior: 'auto',
-          WebkitOverflowScrolling: 'touch'
-        }}
-      >
-        {/* Duplicate the logos array twice for seamless loop */}
-        {[...logos, ...logos].map((logo, index) => (
-          <div 
-            key={`logo-${index % logos.length}-${Math.floor(index / logos.length)}`}
-            className="flex-shrink-0 w-[415px] h-[311px] flex items-center justify-center"
-          >
-            <img 
-              src={logo} 
-              alt={`Partner logo ${(index % logos.length) + 1}`}
-              className="max-w-full max-h-full object-contain"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
+    <div></div>
   );
 }
 

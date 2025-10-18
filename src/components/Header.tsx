@@ -14,15 +14,15 @@ import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { OptimizedImage } from "@/components/OptimizedImage";
 const specialties = [
-  { title: "ADHD Care", href: "/services" },
-  { title: "PTSD Care", href: "/services" },
-  { title: "Trauma Care", href: "/services" },
-  { title: "Mental Health Care", href: "/services" },
-  { title: "Mood Disorders", href: "/services" },
-  { title: "Anxiety Disorders", href: "/services" },
-  { title: "Sleep Concerns & Psychosomatic Symptoms", href: "/services" },
-  { title: "Immigrant & Refugee Psychological Support", href: "/services" },
-  { title: "Medical Weight Loss Management", href: "/services" },
+  { title: "ADHD Care", href: "/adhd-care" },
+  { title: "PTSD Care", href: "/ptsd-care" },
+  { title: "Trauma Care", href: "/trauma-care" },
+  { title: "Mental Health Care", href: "/mental-health-care" },
+  { title: "Mood Disorders", href: "/mood-disorders" },
+  { title: "Anxiety Disorders", href: "/anxiety-disorders" },
+  { title: "Sleep Concerns & Psychosomatic Symptoms", href: "/sleep-concerns" },
+  { title: "Immigrant & Refugee Psychological Support", href: "/immigrant-refugee-support" },
+  { title: "Medical Weight Loss Management", href: "/medical-weight-loss" },
 ];
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,15 +34,16 @@ export function Header() {
       
       <div className="container max-w-container h-20 flex items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo - Increased by 35% */}
-        <Link to="/" className="flex items-center flex-shrink-0" aria-label="Barrat Behavioral Health & Primary Care Home">
+        <Link to="/" className="flex flex-col items-center flex-shrink-0 min-w-0" aria-label="Barrat Behavioral Health & Primary Care Home">
           <OptimizedImage 
             src="https://media.inboundwizard.com/barrat%20behavioral%20health%20and%20primary%20care.svg" 
             alt="Barrat Behavioral Health Logo" 
-            className="h-14 w-auto" 
+            className="h-10 sm:h-12 md:h-14 w-auto" 
             priority={true}
             width={200}
             height={56}
           />
+          <span className="font-bold text-[0.65rem] sm:text-xs md:text-sm text-center text-dark-text mt-1 leading-tight">Barrat Behavioral Health & Primary Care</span>
         </Link>
         
         {/* Centered Navigation Menu */}
@@ -71,7 +72,20 @@ export function Header() {
               </NavLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuTrigger aria-label="View our specialties">Our Specialties</NavigationMenuTrigger>
+              <NavLink
+                to="/meet-our-team"
+                className={({ isActive }) =>
+                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
+                }
+                aria-label="Meet Our Team"
+              >
+                Meet Our Team
+              </NavLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuTrigger aria-label="View our specialties">
+                Our Specialties
+              </NavigationMenuTrigger>
               <NavigationMenuContent>
                 <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-white">
                   {specialties.map((component) => (
@@ -104,7 +118,7 @@ export function Header() {
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavLink
-                to="/about#why-choose-us"
+                to="/what-our-patients-say"
                 className={({ isActive }) =>
                   cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
                 }
@@ -150,8 +164,9 @@ export function Header() {
           <Button 
             variant="outline" 
             size="icon" 
-            className="md:hidden"
+            className="md:hidden min-w-[44px] min-h-[44px]"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             <span className="sr-only">Toggle navigation menu</span>
@@ -162,10 +177,10 @@ export function Header() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="md:hidden border-t bg-background">
-          <nav className="container max-w-container px-4 py-6 grid gap-6 text-lg font-medium">
+          <nav className="container max-w-container px-4 py-6 grid gap-4 text-base font-medium">
             <Link 
               to="/" 
-              className="hover:text-brand-orange transition-colors" 
+              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
               aria-label="Home"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -173,15 +188,23 @@ export function Header() {
             </Link>
             <Link 
               to="/about" 
-              className="hover:text-brand-orange transition-colors" 
+              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
               aria-label="About"
               onClick={() => setMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link 
+              to="/meet-our-team" 
+              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
+              aria-label="Meet Our Team"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Meet Our Team
+            </Link>
+            <Link 
               to="/services" 
-              className="hover:text-brand-orange transition-colors" 
+              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
               aria-label="Services"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -189,7 +212,7 @@ export function Header() {
             </Link>
             <Link 
               to="/blog" 
-              className="hover:text-brand-orange transition-colors" 
+              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
               aria-label="Blog"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -197,15 +220,15 @@ export function Header() {
             </Link>
             <Link 
               to="/testimonials" 
-              className="hover:text-brand-orange transition-colors" 
+              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
               aria-label="Testimonials"
               onClick={() => setMobileMenuOpen(false)}
             >
               Testimonials
             </Link>
             <Link 
-              to="/about#why-choose-us" 
-              className="hover:text-brand-orange transition-colors" 
+              to="/what-our-patients-say" 
+              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
               aria-label="What Our Patients Say"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -213,7 +236,7 @@ export function Header() {
             </Link>
             <Link 
               to="/referrals" 
-              className="hover:text-brand-orange transition-colors" 
+              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
               aria-label="Referrals"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -221,7 +244,7 @@ export function Header() {
             </Link>
             <Link 
               to="/contact" 
-              className="hover:text-brand-orange transition-colors" 
+              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
               aria-label="Contact Us"
               onClick={() => setMobileMenuOpen(false)}
             >
@@ -229,7 +252,7 @@ export function Header() {
             </Link>
             <Button 
               asChild 
-              className="bg-brand-orange hover:bg-brand-orange/90 text-white rounded-lg px-6 py-3 transition-colors mt-4"
+              className="bg-brand-orange hover:bg-brand-orange/90 text-white rounded-lg px-6 py-3 transition-colors mt-4 min-h-[48px]"
               onClick={() => setMobileMenuOpen(false)}
             >
               <Link to="/contact" aria-label="Book an appointment">

@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { SEO } from "@/components/SEO";
+
 const services = [
   {
     id: "item-1",
@@ -67,15 +68,57 @@ const services = [
     imageUrl: "https://media.inboundwizard.com/Medical%20weight%20loss%20management.png",
   },
 ];
+
 export function ServicesPage() {
+  const getServiceContent = (service: typeof services[0]) => {
+    const specialtyRoutes = [
+      "ADHD Care",
+      "PTSD Care", 
+      "Trauma Care",
+      "Mental Health Care",
+      "Mood Disorders",
+      "Anxiety Disorders",
+      "Sleep Concerns & Psychosomatic Symptoms",
+      "Immigrant & Refugee Psychological Support",
+      "Medical Weight Loss Management"
+    ];
+
+    if (specialtyRoutes.includes(service.title)) {
+      const routeMap: Record<string, string> = {
+        "ADHD Care": "/adhd-care",
+        "PTSD Care": "/ptsd-care", 
+        "Trauma Care": "/trauma-care",
+        "Mental Health Care": "/mental-health-care",
+        "Mood Disorders": "/mood-disorders",
+        "Anxiety Disorders": "/anxiety-disorders",
+        "Sleep Concerns & Psychosomatic Symptoms": "/sleep-concerns",
+        "Immigrant & Refugee Psychological Support": "/immigrant-refugee-support",
+        "Medical Weight Loss Management": "/medical-weight-loss"
+      };
+
+      return (
+        <div className="flex flex-col justify-center flex-grow">
+          <Button asChild className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-6 py-3 transition-colors mt-4">
+            <Link to={routeMap[service.title]} aria-label={`Learn more about ${service.title.toLowerCase()}`}>
+              Learn More
+            </Link>
+          </Button>
+        </div>
+      );
+    }
+
+    return <p>{service.content}</p>;
+  };
+
   return (
     <div className="bg-white">
       <SEO
         title="Mental Health Services in Woodbridge, VA"
         description="Explore comprehensive mental health services at Barrat Behavioral Health & Primary. We offer specialized care for ADHD, PTSD, trauma, anxiety, mood disorders, and more for teens and adults."
       />
+      
+      {/* Hero Section */}
       <section className="relative bg-light-gray overflow-hidden">
-        {/* Video Background */}
         <video
           autoPlay
           muted
@@ -86,7 +129,6 @@ export function ServicesPage() {
           <source src="https://media.inboundwizard.com/supporting%20pages%20background.webm" type="video/webm" />
         </video>
         
-        {/* Content */}
         <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-gray-900 leading-tight">
             Our Services
@@ -96,6 +138,8 @@ export function ServicesPage() {
           </p>
         </div>
       </section>
+
+      {/* Service Overview Section */}
       <section className="py-16 md:py-24">
         <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -114,7 +158,7 @@ export function ServicesPage() {
             </div>
             <div className="prose lg:prose-lg max-w-none prose-p:text-gray-700 prose-headings:font-display prose-headings:text-gray-900 prose-p:leading-relaxed">
               <h3>Medication Management Services</h3>
-              <p>We understand that every individual’s journey with mental health is unique. Our Medication Management service provides safe, thoughtful, and compassionate care—empowering you to feel balanced, supported, and in control of your wellness.</p>
+              <p>We understand that every individual's journey with mental health is unique. Our Medication Management service provides safe, thoughtful, and compassionate care—empowering you to feel balanced, supported, and in control of your wellness.</p>
             </div>
             <div className="prose lg:prose-lg max-w-none prose-p:text-gray-700 prose-headings:font-display prose-headings:text-gray-900 prose-p:leading-relaxed">
               <h3>Supportive Therapy</h3>
@@ -123,25 +167,38 @@ export function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Services Grid Section */}
       <section className="py-16 md:py-24 bg-light-gray">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {services.map((service) => (
               <div key={service.id} className={service.span}>
-                <Card className="h-full bg-white border-none shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
-                  <img src={service.imageUrl} alt={service.title} className="w-full h-48 object-cover" />
-                  <div className="p-6 flex flex-col flex-grow">
-                    <CardHeader className="p-0">
-                      <CardTitle className="text-2xl font-semibold font-display text-gray-800">{service.title}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="p-0 pt-4 text-gray-600 text-base flex-grow">
-                      <p>{service.content}</p>
-                    </CardContent>
-                  </div>
-                </Card>
+                <div className={service.title === "Mood Disorders" ? "w-[65%] mx-auto" : ""}>
+                  <Card className="h-full bg-white border-none shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col overflow-hidden">
+                    <div className="overflow-hidden">
+                      <img 
+                        src={service.imageUrl} 
+                        alt={service.title} 
+                        className="w-full h-auto -mt-5 -mb-5" 
+                      />
+                    </div>
+                    <div className="p-6 flex flex-col flex-grow">
+                      <CardHeader className="p-0">
+                        <CardTitle className="text-2xl font-semibold font-display text-gray-800">
+                          {service.title}
+                        </CardTitle>
+                      </CardHeader>
+                      <CardContent className="p-0 pt-4 text-gray-600 text-base flex-grow">
+                        {getServiceContent(service)}
+                      </CardContent>
+                    </div>
+                  </Card>
+                </div>
               </div>
             ))}
           </div>
+          
           <div className="mt-16 text-center">
             <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900">Ready to Take the Next Step?</h2>
             <p className="mt-4 text-lg text-gray-600">

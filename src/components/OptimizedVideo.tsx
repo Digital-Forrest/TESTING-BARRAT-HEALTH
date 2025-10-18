@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { useMobileOptimization } from '@/hooks/use-mobile-optimization';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface OptimizedVideoProps {
   src: string;
@@ -13,6 +14,7 @@ interface OptimizedVideoProps {
   controls?: boolean;
   preload?: 'none' | 'metadata' | 'auto';
   poster?: string;
+  disableOnMobile?: boolean;
 }
 
 export function OptimizedVideo({
@@ -25,14 +27,16 @@ export function OptimizedVideo({
   playsInline = true,
   controls = false,
   preload = 'metadata',
-  poster
+  poster,
+  disableOnMobile = false
 }: OptimizedVideoProps) {
   const [shouldLoad, setShouldLoad] = useState(priority);
   const [isLoaded, setIsLoaded] = useState(false);
   const [canPlay, setCanPlay] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const { preloadImages } = useMobileOptimization();
+  const { preloadImages, connectionType } = useMobileOptimization();
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     if (priority || preloadImages) {
@@ -60,6 +64,20 @@ export function OptimizedVideo({
     return () => observer.disconnect();
   }, [priority, preloadImages]);
 
+  // On mobile with disableOnMobile, show poster image if available
+  if (disableOnMobile && isMobile && poster) {
+    return (
+      <div ref={containerRef} className={cn('relative overflow-hidden', className)}>
+        <img 
+          src={poster} 
+          alt="" 
+          className="w-full h-full object-cover"
+          loading={priority ? 'eager' : 'lazy'}
+        />
+      </div>
+    );
+  }
+
   if (!shouldLoad) {
     return (
       <div
@@ -71,6 +89,9 @@ export function OptimizedVideo({
     );
   }
 
+  // Don't autoplay on slow connections
+  const shouldAutoPlay = autoPlay && connectionType !== 'slow';
+
   return (
     <video
       ref={videoRef}
@@ -79,12 +100,12 @@ export function OptimizedVideo({
         canPlay ? 'opacity-100' : 'opacity-0',
         className
       )}
-      autoPlay={autoPlay}
+      autoPlay={shouldAutoPlay}
       muted={muted}
       loop={loop}
       playsInline={playsInline}
       controls={controls}
-      preload={preload}
+      preload={isMobile ? 'none' : preload}
       poster={poster}
       onCanPlay={() => setCanPlay(true)}
       onLoadedData={() => setIsLoaded(true)}

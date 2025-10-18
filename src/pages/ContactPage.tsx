@@ -63,10 +63,11 @@ export function ContactPage() {
             </div>
             
             {/* Embedded Contact Form */}
-            <div className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+            <div className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 shadow-sm">
               <iframe
                 src="https://api.ad-crm.com/widget/form/BSRdar6DqcHCNr9wmTlL"
-                style={{ width: '100%', height: '506px', border: 'none', borderRadius: '3px' }}
+                className="w-full border-none rounded-sm min-h-[506px] h-auto"
+                style={{ maxHeight: '80vh' }}
                 id="inline-BSRdar6DqcHCNr9wmTlL"
                 data-layout="{'id':'INLINE'}"
                 data-trigger-type="alwaysShow"

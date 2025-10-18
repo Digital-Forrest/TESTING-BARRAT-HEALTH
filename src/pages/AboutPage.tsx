@@ -1,15 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle } from "lucide-react";
 import { SEO } from "@/components/SEO";
-import { LogoCarousel } from "@/components/LogoCarousel";
 import { Link } from "react-router-dom";
+
 export function AboutPage() {
-  const whatSetsUsApart = [
-    "Strengths-Based, Neurodivergent-Affirming Approach – We honor your unique perspective and build on your strengths. Specialized support for individuals living with ADHD, Depression, Anxiety, trauma, PTSD, mood disorders, and Weight Management.",
-    "Comprehensive, Personalized Services – Care plans are thoughtfully tailored to your specific needs and goals.",
-    "Holistic Support Across the Lifespan – From adolescence through adulthood, we support your total well-being.",
-    "Accessible and Convenient Care – Offering both in-person and virtual visits designed to fit your life.",
-  ];
   return (
     <div className="bg-white">
       <SEO
@@ -39,6 +33,7 @@ export function AboutPage() {
           </p>
         </div>
       </section>
+      
       {/* Founder Section */}
       <section className="py-16 md:py-24">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -84,54 +79,7 @@ export function AboutPage() {
           </div>
         </div>
       </section>
-      {/* Why Choose Us Section */}
-      <section id="why-choose-us" className="bg-light-gray py-16 md:py-24">
-        <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900">Why Choose Us</h2>
-          </div>
-          <div className="prose lg:prose-lg max-w-none prose-p:text-gray-700 prose-headings:font-display prose-headings:text-gray-900 prose-p:leading-relaxed space-y-8">
-            <div>
-              <h3 className="text-2xl md:text-3xl">Trusted Care, Lasting Positive Change</h3>
-              <p>At Barrat Behavioral Health & Primary, we are committed to delivering compassionate, evidence-based care that empowers individuals to create meaningful, lasting change in their lives.</p>
-            </div>
-            <div>
-              <h3 className="text-2xl md:text-3xl">What Sets Us Apart</h3>
-              <ul className="space-y-4">
-                {whatSetsUsApart.map((item, index) => (
-                  <li key={index} className="flex items-start gap-4">
-                    <CheckCircle className="h-6 w-6 text-brand-orange flex-shrink-0 mt-1" />
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            {/* Logo Carousel */}
-            <div className="-mx-4 sm:-mx-6 lg:-mx-8">
-              <LogoCarousel />
-            </div>
-
-            <div>
-              <h3 className="text-2xl md:text-3xl">Choosing Us for Mental Wellness</h3>
-              <p>Partnering with us means embracing a journey where clinical expertise meets heartfelt support. With compassion at the center of everything we do, we'll walk alongside you through each step of your healing process—offering guidance, encouragement, and tools that promote sustainable wellness and meaningful, positive change.</p>
-            </div>
-            <div>
-              <h3 className="text-2xl md:text-3xl">What to expect In your first session with me:</h3>
-              <p>In your first session with me, you can expect a warm, welcoming environment where we focus on building a strong foundation of trust. We'll take time to explore your medical and mental health history, discuss what’s bringing you in, and begin identifying meaningful goals for your care. This session is a two-way conversation—while I’ll guide us with thoughtful questions, you are encouraged to share at your own pace and in your own words.</p>
-              <p>My therapeutic approach is personalized and grounded in evidence-based practices. I integrate Cognitive Behavioral Therapy (CBT) to help reframe unhelpful thought patterns, Motivational Interviewing to encourage positive behavior change, and Trauma-Informed Care to ensure safety and empowerment throughout the healing process. Depending on your needs, I may also incorporate mindfulness strategies, solution-focused techniques, and supportive counseling to guide you toward lasting wellness.</p>
-            </div>
-            <div>
-              <h3 className="text-2xl md:text-3xl">Between sessions:</h3>
-              <p>My commitment to your care doesn’t end when our appointment does. While I cannot provide ongoing therapy or full consultations outside of scheduled sessions, I remain available for important updates, urgent concerns, or questions about your treatment plan.</p>
-              <p>For non-urgent matters, you can contact me through the patient portal, by email, or by leaving a voicemail. I aim to respond within 1–2 business days.</p>
-              <p>For urgent issues that cannot wait until our next appointment, I may offer a brief check-in or arrange an earlier session, depending on the situation.</p>
-              <p>For emergencies, please call 911, go to the nearest emergency department, or call/text the Suicide & Crisis Lifeline at 988.</p>
-              <p>This balance helps maintain clear boundaries while ensuring you have the support and guidance you need between visits.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       {/* Mission and Vision Section */}
       <section className="py-16 md:py-24">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

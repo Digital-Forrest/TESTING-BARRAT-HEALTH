@@ -6,9 +6,9 @@ export function Footer() {
       <div className="container max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="space-y-4">
-            <Link to="/" className="flex items-center gap-2" aria-label="Barrat Behavioral Health and Primary Care Home">
+            <Link to="/" className="flex flex-col items-center gap-2" aria-label="Barrat Behavioral Health and Primary Care Home">
               <img src="https://media.barratbhandconsulting.com/Barratbhand-consulting%20main-logo.png" alt="Barrat Behavioral Health Logo" className="h-12 w-auto" />
-              <span className="font-bold text-xl text-white">Barrat Behavioral Health</span>
+              <span className="font-bold text-xl text-white text-center">Barrat Behavioral Health & Primary Care</span>
             </Link>
             <p className="text-sm">Supporting teens and adults to thrive at every stage.</p>
           </div>
@@ -42,7 +42,7 @@ export function Footer() {
         </div>
         <div className="mt-12 border-t border-gray-700 pt-8 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-base text-gray-400">&copy; {new Date().getFullYear()} Barrat Behavioral Health and Primary Care. All rights reserved.</p>
-          <p className="text-sm text-gray-500 mt-4 sm:mt-0">Built with ❤️ at Cloudflare</p>
+          <p className="text-sm text-gray-500 mt-4 sm:mt-0">Built with ❤️ at Adsit Digital</p>
         </div>
       </div>
     </footer>

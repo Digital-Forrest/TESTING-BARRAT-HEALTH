@@ -36,8 +36,13 @@ export function WhyChooseUsSection() {
               </Button>
             </div>
           </div>
-          <div className="hidden lg:block">
-            <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop" alt="A calm and welcoming therapy room" className="image-tall-rounded" />
+          <div className="hidden sm:block">
+            <img 
+              src="https://images.unsplash.com/photo-1584515933487-779824d29309?q=80&w=2070&auto=format&fit=crop" 
+              alt="A calm and welcoming therapy room" 
+              className="rounded-lg shadow-md w-full h-auto object-cover max-h-[400px] lg:max-h-none" 
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
