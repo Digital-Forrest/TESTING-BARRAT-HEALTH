@@ -4,7 +4,7 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { useEffect, useState } from "react";
-import DOMPurify from "dompurify";
+import DOMPurify from "isomorphic-dompurify";
 
 export function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
@@ -23,7 +23,7 @@ export function BlogPostPage() {
           
           if (foundPost) {
             setPost(foundPost);
-            // Sanitize the content
+            // Sanitize the content with isomorphic-dompurify (works in SSR and client)
             const sanitized = DOMPurify.sanitize(foundPost.content, {
               ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img'],
               ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'class', 'style']
@@ -38,9 +38,7 @@ export function BlogPostPage() {
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Unknown error');
-        if (import.meta.env.DEV) {
-          console.error('Error loading blog post:', err);
-        }
+        console.error('Error loading blog post:', err);
       } finally {
         setIsLoading(false);
       }
