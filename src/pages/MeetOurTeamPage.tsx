@@ -37,18 +37,8 @@ export function MeetOurTeamPage() {
       {/* Team Section */}
       <section className="bg-white py-16 md:py-24">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">
-              Our Dedicated Team
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Our team of experienced mental health professionals is committed to providing compassionate, 
-              evidence-based care that empowers you to achieve your wellness goals.
-            </p>
-          </div>
-          
           {/* Team Member 1 - Amanda - Bio Left, Image Right */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center mb-24">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mb-24">
             {/* Bio - Left Side */}
             <div className="space-y-6">
               <div>
@@ -112,7 +102,7 @@ export function MeetOurTeamPage() {
           </div>
 
           {/* Team Member 2 - Nathaniel - Image Left, Bio Right */}
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">
+          <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-start mb-16">
             {/* Headshot - Left Side */}
             <div>
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
