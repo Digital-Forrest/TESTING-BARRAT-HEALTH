@@ -43,7 +43,7 @@ export function MeetOurTeamPage() {
             <div className="space-y-6">
               <div>
                 <h3 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-2">
-                  Amanda Barrat
+                  Amanda Carmouche
                 </h3>
                 <p className="text-lg font-semibold text-brand-orange mb-4">
                   FNP-C, PMHNP-BC
@@ -93,7 +93,7 @@ export function MeetOurTeamPage() {
               <div className="relative rounded-2xl overflow-hidden shadow-xl mb-6">
                 <img 
                   src="/media/1514FD7B-A23A-4AFD-8D7B-0ACBED99B0FF.png" 
-                  alt="Amanda Barrat, FNP-C, PMHNP-BC"
+                  alt="Amanda Carmouche, FNP-C, PMHNP-BC"
                   className="w-full h-auto object-cover"
                   loading="eager"
                 />
