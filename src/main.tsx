@@ -17,6 +17,7 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { RouteErrorBoundary } from '@/components/RouteErrorBoundary';
 import { LazyLoadErrorBoundary } from '@/components/LazyLoadErrorBoundary';
 import { Layout } from '@/components/Layout';
+import BlogPostPage from '@/pages/BlogPostPage'; // Direct import to avoid CF Pages lazy loading issue
 import '@/index.css';
 
 // Lazy load pages for better performance
@@ -37,7 +38,7 @@ const SleepConcernsPage = lazy(() => import('@/pages/SleepConcernsPage').then(m 
 const ImmigrantRefugeeSupportPage = lazy(() => import('@/pages/ImmigrantRefugeeSupportPage').then(m => ({ default: m.ImmigrantRefugeeSupportPage })));
 const MedicalWeightLossPage = lazy(() => import('@/pages/MedicalWeightLossPage').then(m => ({ default: m.MedicalWeightLossPage })));
 const BlogPage = lazy(() => import('@/pages/BlogPage').then(m => ({ default: m.BlogPage })));
-const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'));
+// BlogPostPage imported directly at top of file to avoid CF Pages React error #61
 const ReferralsPage = lazy(() => import('@/pages/ReferralsPage').then(m => ({ default: m.ReferralsPage })));
 
 // Loading component

@@ -163,17 +163,17 @@ export default ({ mode }: { mode: string }) => {
           drop_console: mode === "production",
           drop_debugger: true,
           pure_funcs: mode === "production" ? ['console.log', 'console.info', 'console.debug'] : [],
-          passes: 3,
-          unsafe: true,
-          unsafe_comps: true,
-          unsafe_math: true,
-          unsafe_proto: true
+          // Disabled aggressive unsafe optimizations - they break React on Cloudflare Pages
+          passes: 2,
+          unsafe: false,
+          unsafe_comps: false,
+          unsafe_math: false,
+          unsafe_proto: false
         },
         mangle: {
           safari10: true,
-          properties: {
-            regex: /^_/
-          }
+          // Disabled property mangling - it breaks React
+          properties: false
         },
         format: {
           comments: false
