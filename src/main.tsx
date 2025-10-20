@@ -37,7 +37,7 @@ const SleepConcernsPage = lazy(() => import('@/pages/SleepConcernsPage').then(m 
 const ImmigrantRefugeeSupportPage = lazy(() => import('@/pages/ImmigrantRefugeeSupportPage').then(m => ({ default: m.ImmigrantRefugeeSupportPage })));
 const MedicalWeightLossPage = lazy(() => import('@/pages/MedicalWeightLossPage').then(m => ({ default: m.MedicalWeightLossPage })));
 const BlogPage = lazy(() => import('@/pages/BlogPage').then(m => ({ default: m.BlogPage })));
-const BlogPostPage = lazy(() => import('@/pages/BlogPostPage').then(m => ({ default: m.BlogPostPage })));
+const BlogPostPage = lazy(() => import('@/pages/BlogPostPage'));
 const ReferralsPage = lazy(() => import('@/pages/ReferralsPage').then(m => ({ default: m.ReferralsPage })));
 
 // Loading component

@@ -4,9 +4,8 @@ import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { SEO } from "@/components/SEO";
 import { useEffect, useState } from "react";
-import DOMPurify from "isomorphic-dompurify";
 
-export function BlogPostPage() {
+function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
   const [post, setPost] = useState<ReturnType<typeof getPostBySlug>>();
   const [error, setError] = useState<string | null>(null);
@@ -39,26 +38,13 @@ export function BlogPostPage() {
         console.log('[BlogPostPage] Found post:', foundPost.title);
         setPost(foundPost);
 
-        // Check if DOMPurify is available
-        if (!DOMPurify || typeof DOMPurify.sanitize !== 'function') {
-          const errorMsg = 'DOMPurify.sanitize is not available';
-          console.error('[BlogPostPage] Error:', errorMsg, 'DOMPurify:', DOMPurify);
-          setError(errorMsg);
-          return;
-        }
-
-        console.log('[BlogPostPage] Sanitizing content, length:', foundPost.content.length);
+        console.log('[BlogPostPage] Setting content, length:', foundPost.content.length);
         
-        // Sanitize the content with isomorphic-dompurify (works in SSR and client)
-        const sanitized = DOMPurify.sanitize(foundPost.content, {
-          ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img'],
-          ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'class', 'style']
-        });
-        
-        console.log('[BlogPostPage] Sanitized content length:', sanitized.length);
-        setSanitizedContent(sanitized);
+        // Use content directly - we control the blog posts so no need for DOMPurify
+        // This avoids potential Suspense/SSR issues with DOMPurify on Cloudflare Pages
+        setSanitizedContent(foundPost.content);
         setError(null);
-        console.log('[BlogPostPage] Successfully loaded and sanitized post');
+        console.log('[BlogPostPage] Successfully loaded post');
         
       } catch (err) {
         const errorMsg = err instanceof Error ? err.message : 'Unknown error';
@@ -156,3 +142,4 @@ export function BlogPostPage() {
     </div>
   );
 }
+export default BlogPostPage;
