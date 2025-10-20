@@ -16,31 +16,59 @@ export function BlogPostPage() {
   useEffect(() => {
     const loadPostAndSanitizer = async () => {
       setIsLoading(true);
+      console.log('[BlogPostPage] Starting to load post, slug:', slug);
+      
       try {
-        if (slug) {
-          // Normalize slug to lowercase for case-insensitive matching
-          const foundPost = getPostBySlug(slug.toLowerCase());
-          
-          if (foundPost) {
-            setPost(foundPost);
-            // Sanitize the content with isomorphic-dompurify (works in SSR and client)
-            const sanitized = DOMPurify.sanitize(foundPost.content, {
-              ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img'],
-              ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'class', 'style']
-            });
-            setSanitizedContent(sanitized);
-            setError(null);
-          } else {
-            setError('Post not found');
-          }
-        } else {
-          setError('No slug provided');
+        if (!slug) {
+          const errorMsg = 'No slug provided';
+          console.error('[BlogPostPage] Error:', errorMsg);
+          setError(errorMsg);
+          return;
         }
+
+        console.log('[BlogPostPage] Looking for post with slug:', slug.toLowerCase());
+        const foundPost = getPostBySlug(slug.toLowerCase());
+        
+        if (!foundPost) {
+          const errorMsg = `Post not found for slug: ${slug}`;
+          console.error('[BlogPostPage] Error:', errorMsg);
+          setError(errorMsg);
+          return;
+        }
+
+        console.log('[BlogPostPage] Found post:', foundPost.title);
+        setPost(foundPost);
+
+        // Check if DOMPurify is available
+        if (!DOMPurify || typeof DOMPurify.sanitize !== 'function') {
+          const errorMsg = 'DOMPurify.sanitize is not available';
+          console.error('[BlogPostPage] Error:', errorMsg, 'DOMPurify:', DOMPurify);
+          setError(errorMsg);
+          return;
+        }
+
+        console.log('[BlogPostPage] Sanitizing content, length:', foundPost.content.length);
+        
+        // Sanitize the content with isomorphic-dompurify (works in SSR and client)
+        const sanitized = DOMPurify.sanitize(foundPost.content, {
+          ALLOWED_TAGS: ['p', 'br', 'strong', 'em', 'u', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'ul', 'ol', 'li', 'a', 'blockquote', 'code', 'pre', 'img'],
+          ALLOWED_ATTR: ['href', 'target', 'rel', 'src', 'alt', 'title', 'class', 'style']
+        });
+        
+        console.log('[BlogPostPage] Sanitized content length:', sanitized.length);
+        setSanitizedContent(sanitized);
+        setError(null);
+        console.log('[BlogPostPage] Successfully loaded and sanitized post');
+        
       } catch (err) {
-        setError(err instanceof Error ? err.message : 'Unknown error');
-        console.error('Error loading blog post:', err);
+        const errorMsg = err instanceof Error ? err.message : 'Unknown error';
+        console.error('[BlogPostPage] Caught error:', errorMsg, err);
+        console.error('[BlogPostPage] Error stack:', err instanceof Error ? err.stack : 'No stack');
+        console.error('[BlogPostPage] Error type:', typeof err, err);
+        setError(errorMsg);
       } finally {
         setIsLoading(false);
+        console.log('[BlogPostPage] Finished loading, isLoading:', false);
       }
     };
 
@@ -67,6 +95,12 @@ export function BlogPostPage() {
         <div className="container max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 text-center">
           <h1 className="text-4xl font-display font-bold text-gray-900">Post Not Found</h1>
           <p className="mt-4 text-lg text-gray-600">Sorry, we couldn't find the blog post you're looking for.</p>
+          {error && (
+            <div className="mt-6 p-4 bg-red-50 border border-red-200 rounded-lg">
+              <p className="text-sm text-red-800 font-mono">Error: {error}</p>
+              <p className="text-xs text-red-600 mt-2">Check browser console for details</p>
+            </div>
+          )}
           <div className="mt-8">
             <Button asChild variant="outline" className="border-brand-orange text-brand-orange hover:bg-brand-orange hover:text-white font-semibold rounded-lg px-6 py-3 text-base transition-colors border-2">
               <Link to="/blog" aria-label="Back to blog">

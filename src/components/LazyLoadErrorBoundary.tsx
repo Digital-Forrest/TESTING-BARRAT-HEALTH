@@ -21,10 +21,12 @@ export class LazyLoadErrorBoundary extends Component<Props, State> {
     return { hasError: true, error };
   }
 
-  public componentDidCatch(error: Error): void {
-    if (import.meta.env.DEV) {
-      console.error('[LazyLoadErrorBoundary] Failed to load component:', error);
-    }
+  public componentDidCatch(error: Error, errorInfo: any): void {
+    console.error('[LazyLoadErrorBoundary] Failed to load component:', error);
+    console.error('[LazyLoadErrorBoundary] Error message:', error.message);
+    console.error('[LazyLoadErrorBoundary] Error stack:', error.stack);
+    console.error('[LazyLoadErrorBoundary] Component stack:', errorInfo?.componentStack);
+    console.error('[LazyLoadErrorBoundary] Full error object:', JSON.stringify(error, Object.getOwnPropertyNames(error)));
   }
 
   private handleRetry = (): void => {
@@ -40,13 +42,20 @@ export class LazyLoadErrorBoundary extends Component<Props, State> {
 
       return (
         <div className="flex items-center justify-center min-h-screen bg-light-gray">
-          <div className="text-center px-4 max-w-md">
+          <div className="text-center px-4 max-w-2xl">
             <h1 className="text-3xl font-display font-bold text-gray-900 mb-4">
               Failed to Load Page
             </h1>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-lg text-gray-600 mb-4">
               We encountered an issue loading this page. This might be due to a network problem or outdated cache.
             </p>
+            {this.state.error && (
+              <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg text-left">
+                <p className="text-sm font-semibold text-red-900 mb-2">Error Details:</p>
+                <p className="text-sm text-red-800 font-mono break-all">{this.state.error.message}</p>
+                <p className="text-xs text-red-600 mt-2">Check browser console for full stack trace</p>
+              </div>
+            )}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 onClick={this.handleRetry}
