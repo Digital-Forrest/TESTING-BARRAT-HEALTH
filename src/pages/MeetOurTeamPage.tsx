@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { CheckCircle } from "lucide-react";
 import { SEO } from "@/components/SEO";
 import { Link } from "react-router-dom";
 
@@ -20,7 +21,7 @@ export function MeetOurTeamPage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-70"
         >
-          <source src="/media/supporting%20pages%20background.webm" type="video/webm" />
+          <source src="https://media.barratbhandconsulting.com/supporting%20pages%20background.webm" type="video/webm" />
         </video>
         
         {/* Content */}
@@ -31,6 +32,52 @@ export function MeetOurTeamPage() {
           <p className="mt-6 max-w-3xl mx-auto text-lg md:text-xl text-gray-600">
             Get to know the compassionate professionals who are dedicated to supporting your mental wellness journey.
           </p>
+        </div>
+      </section>
+
+      {/* About Section - Moved from About Page */}
+      <section className="py-16 md:py-24">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900">
+                Kadija Conteh-Barrat, DNP, FNP-BC, PMHNP-BC
+              </h2>
+              <div className="mt-4 space-y-4 text-gray-600">
+                <p>
+                  Kadija Conteh-Barrat, DNP, APRN, FNP-BC, PMHNP-BC, is a doctorally prepared, dual board-certified Family Nurse Practitioner and Psychiatric Mental Health Nurse Practitioner. With over a decade of experience in advanced clinical practice. She integrates behavioral health and primary care to deliver holistic, evidence-based treatment across the lifespan.
+                </p>
+                <p>
+                  Kadija is the founder and CEO of Barrat Behavioral Health and Primary Care, where she provides comprehensive psychiatric evaluations, medication management, and integrative care tailored to each patient's needs. She also serves as Adjunct Faculty at Yale University School of Nursing, where she mentors the next generation of healthcare leaders.
+                </p>
+                <p>
+                  Her career spans diverse clinical settings, including primary care, women's Health, community-based psychiatric care, crisis, addiction, and geriatric mental health.
+                </p>
+                <p>
+                  Kadija Conteh-Barrat is a recognized leader in nursing and mental health. She has received numerous honors, including the Outstanding Public Health Nurse Award from George Mason University and designation as an Emerging Healthcare Leader by United Health Group. She is also a recipient of the Inova Health System Edelman Institute for Nursing Excellence Scholarship and an AHEC scholar.
+                </p>
+                <p>
+                  Dedicated to advancing health equity and access, Kadija Conteh-Barrat is the President of the Manak Community Health Organization (MaCHO), a nonprofit she co-founded to expand healthcare access in underserved communities in Sierra Leone. Through a free community clinic, medical missions, and outreach, she works to bridge health disparities and improve quality of life for vulnerable populations.
+                </p>
+                <p>
+                  She is an active member of leading professional organizations, including the American Association of Nurse Practitioners, the American Psychiatric Nurses Association, American Nurses Association, and the Sigma Theta Tau Honor Society of Nursing.
+                </p>
+                <p>
+                  Passionate about patient-centered care, innovation, and community service, Kadija continues to drive change at the intersection of mental health and primary care—empowering individuals, families, and communities to achieve lasting wellness.
+                </p>
+                <p className="italic border-l-4 border-brand-orange pl-4 mt-6">
+                  "My journey to becoming a mental healthcare provider began with a deep passion for understanding the human experience and a commitment to caring for the whole person—mind, body, and spirit. As a nurse, I saw firsthand how mental health impacts every aspect of a person's well-being, often in ways that go unseen or untreated. That insight drove me to pursue dual board certification as a Family Nurse Practitioner and a Psychiatric Mental Health Nurse Practitioner. Over the past decade, I've had the privilege of walking alongside individuals and families during some of their most vulnerable moments. Each experience has reinforced my belief in compassionate, holistic care and the power of connection, healing, and resilience. This work is not just my profession—it's my calling." - Kadija Conteh-Barrat
+                </p>
+              </div>
+              <div className="mt-8">
+                <Button asChild size="lg" className="bg-brand-orange hover:bg-brand-orange-dark text-white font-semibold rounded-lg px-8 py-4 text-base transition-transform hover:scale-105">
+                  <Link to="/contact" aria-label="Book a session with Kadija">
+                    Book a Session
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -92,7 +139,7 @@ export function MeetOurTeamPage() {
             <div className="order-first md:order-last">
               <div className="relative rounded-2xl overflow-hidden shadow-xl mb-6">
                 <img 
-                  src="/media/1514FD7B-A23A-4AFD-8D7B-0ACBED99B0FF.png" 
+                  src="https://media.barratbhandconsulting.com/1514FD7B-A23A-4AFD-8D7B-0ACBED99B0FF.png" 
                   alt="Amanda Carmouche, FNP-C, PMHNP-BC"
                   className="w-full h-auto object-cover"
                   loading="eager"
@@ -117,7 +164,7 @@ export function MeetOurTeamPage() {
             <div>
               <div className="relative rounded-2xl overflow-hidden shadow-xl">
                 <img 
-                  src="/media/88615597-937E-4BEA-AA7C-D7B31167B4B0.png" 
+                  src="https://media.barratbhandconsulting.com/88615597-937E-4BEA-AA7C-D7B31167B4B0.png" 
                   alt="Nathaniel Conteh-Barrat, COO"
                   className="w-full h-auto object-cover"
                   loading="lazy"

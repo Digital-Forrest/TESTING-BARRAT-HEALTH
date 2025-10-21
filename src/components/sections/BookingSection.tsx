@@ -6,7 +6,7 @@ export function BookingSection() {
       <div className="container max-w-container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-heading font-bold text-dark-text mb-4">
-            Nurturing Mental Wellness for All Ages
+            Nurturing Mental Wellness for All
           </h2>
           <p className="text-lg text-neutral-gray font-body mb-12">
             Neurodivergent care for adolescents and adults across the lifespan.

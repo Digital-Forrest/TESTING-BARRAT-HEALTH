@@ -1,6 +1,6 @@
 /**
  * Cloudflare Pages Function for media proxy
- * Handles /media/* routes by proxying requests to media.inboundwizard.com
+ * Handles /media/* routes by proxying requests to media.barratbhandconsulting.com
  * Adds CORS headers to allow cross-origin access
  */
 
@@ -12,7 +12,7 @@ export const onRequest: PagesFunction<Env> = async (context) => {
   const url = new URL(context.request.url);
   const path = context.params.path as string[];
   const mediaPath = Array.isArray(path) ? path.join('/') : path;
-  const mediaUrl = `https://media.inboundwizard.com/${mediaPath}`;
+  const mediaUrl = `https://media.barratbhandconsulting.com/${mediaPath}`;
 
   // Handle OPTIONS preflight requests
   if (context.request.method === 'OPTIONS') {

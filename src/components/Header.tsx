@@ -9,7 +9,7 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import React, { useState } from "react";
 import { cn } from "@/lib/utils";
 import { OptimizedImage } from "@/components/OptimizedImage";
@@ -26,6 +26,8 @@ const specialties = [
 ];
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [specialtiesOpen, setSpecialtiesOpen] = useState(false);
+  const [patientsSayOpen, setPatientsSayOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
 
@@ -36,14 +38,13 @@ export function Header() {
         {/* Logo - Increased by 35% */}
         <Link to="/" className="flex flex-col items-center flex-shrink-0 min-w-0" aria-label="Barrat Behavioral Health & Primary Care Home">
           <OptimizedImage 
-            src="/media/barrat%20behavioral%20health%20and%20primary%20care.svg" 
+            src="https://media.barratbhandconsulting.com/Barratbhand-consulting%20main-logo.png" 
             alt="Barrat Behavioral Health Logo" 
             className="h-10 sm:h-12 md:h-14 w-auto" 
             priority={true}
             width={200}
             height={56}
           />
-          <span className="font-bold text-[0.65rem] sm:text-xs md:text-sm text-center text-dark-text mt-1 leading-tight">Barrat Behavioral Health & Primary Care</span>
         </Link>
         
         {/* Centered Navigation Menu */}
@@ -106,26 +107,19 @@ export function Header() {
               </NavLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavLink
-                to="/testimonials"
-                className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
-                }
-                aria-label="Testimonials"
-              >
-                Testimonials
-              </NavLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavLink
-                to="/what-our-patients-say"
-                className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
-                }
-                aria-label="What Our Patients Say"
-              >
+              <NavigationMenuTrigger aria-label="What Our Patients Say">
                 What Our Patients Say
-              </NavLink>
+              </NavigationMenuTrigger>
+              <NavigationMenuContent>
+                <ul className="grid w-[300px] gap-3 p-4 bg-white">
+                  <ListItem to="/what-our-patients-say" title="What Our Patients Say">
+                    Read stories and feedback from our patients
+                  </ListItem>
+                  <ListItem to="/testimonials" title="Testimonials">
+                    View patient testimonials and reviews
+                  </ListItem>
+                </ul>
+              </NavigationMenuContent>
             </NavigationMenuItem>
             <NavigationMenuItem>
               <NavLink
@@ -136,17 +130,6 @@ export function Header() {
                 aria-label="Referrals"
               >
                 Referrals
-              </NavLink>
-            </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  cn(navigationMenuTriggerStyle(), isActive && "text-brand-orange font-semibold")
-                }
-                aria-label="Contact Us"
-              >
-                Contact Us
               </NavLink>
             </NavigationMenuItem>
           </NavigationMenuList>
@@ -210,6 +193,38 @@ export function Header() {
             >
               Services
             </Link>
+            
+            {/* Our Specialties Section */}
+            <div className="border-l-2 border-brand-orange/20 pl-4">
+              <button
+                onClick={() => setSpecialtiesOpen(!specialtiesOpen)}
+                className="text-sm font-semibold text-brand-orange mb-2 flex items-center gap-2 hover:text-brand-orange/80 transition-colors"
+                aria-label="Toggle Our Specialties"
+              >
+                Our Specialties
+                <ChevronDown 
+                  className={cn(
+                    "h-4 w-4 transition-transform duration-200",
+                    specialtiesOpen && "rotate-180"
+                  )}
+                />
+              </button>
+              {specialtiesOpen && (
+                <div className="space-y-1">
+                  {specialties.map((specialty) => (
+                    <Link 
+                      key={specialty.title}
+                      to={specialty.href} 
+                      className="hover:text-brand-orange transition-colors py-2 px-3 pl-6 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5 text-sm" 
+                      aria-label={specialty.title}
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      ↳ {specialty.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <Link 
               to="/blog" 
               className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
@@ -218,22 +233,42 @@ export function Header() {
             >
               Blog
             </Link>
-            <Link 
-              to="/testimonials" 
-              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
-              aria-label="Testimonials"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Testimonials
-            </Link>
-            <Link 
-              to="/what-our-patients-say" 
-              className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
-              aria-label="What Our Patients Say"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              What Our Patients Say
-            </Link>
+            {/* What Our Patients Say Section */}
+            <div className="border-l-2 border-brand-orange/20 pl-4">
+              <button
+                onClick={() => setPatientsSayOpen(!patientsSayOpen)}
+                className="text-sm font-semibold text-brand-orange mb-2 flex items-center gap-2 hover:text-brand-orange/80 transition-colors"
+                aria-label="Toggle What Our Patients Say"
+              >
+                What Our Patients Say
+                <ChevronDown 
+                  className={cn(
+                    "h-4 w-4 transition-transform duration-200",
+                    patientsSayOpen && "rotate-180"
+                  )}
+                />
+              </button>
+              {patientsSayOpen && (
+                <div className="space-y-1">
+                  <Link 
+                    to="/what-our-patients-say" 
+                    className="hover:text-brand-orange transition-colors py-2 px-3 pl-6 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5 text-sm" 
+                    aria-label="What Our Patients Say"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    ↳ What Our Patients Say
+                  </Link>
+                  <Link 
+                    to="/testimonials" 
+                    className="hover:text-brand-orange transition-colors py-2 px-3 pl-6 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5 text-sm" 
+                    aria-label="Testimonials"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    ↳ Testimonials
+                  </Link>
+                </div>
+              )}
+            </div>
             <Link 
               to="/referrals" 
               className="hover:text-brand-orange transition-colors py-2 px-3 min-h-[44px] flex items-center rounded-md hover:bg-brand-orange/5" 
@@ -267,7 +302,7 @@ export function Header() {
       {isHomePage && (
         <div className="absolute top-20 left-0 right-0 z-10 pointer-events-none -mt-2 md:mt-0">
           <OptimizedImage
-            src="/media/header-curve1.svg"
+            src="https://media.barratbhandconsulting.com/header-curve1.svg"
             alt=""
             aria-hidden="true"
             className="w-full h-[clamp(64px,10vw,100px)] object-fill"

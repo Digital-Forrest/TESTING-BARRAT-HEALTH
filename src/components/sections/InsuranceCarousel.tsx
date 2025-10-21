@@ -7,7 +7,7 @@ export function InsuranceCarousel() {
         </h2>
         <div className="mt-12 flex justify-center">
           <img
-            src="/media/insurance-carriers-accepted.png"
+            src="https://media.barratbhandconsulting.com/insurance-carriers-accepted.png"
             alt="List of accepted insurance carriers including Aetna, Cigna, BlueCross BlueShield, UnitedHealthcare, Anthem, CareFirst, and Medicaid"
             className="max-w-4xl w-full h-auto rounded-lg shadow-md"
           />

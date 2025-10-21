@@ -135,7 +135,7 @@ self.addEventListener('fetch', (event) => {
 function isExternalResource(url) {
   // Check if URL matches any of our external CDN resources
   return EXTERNAL_RESOURCES.some(resource => url.includes(resource)) || 
-         url.includes('media.inboundwizard.com');
+         url.includes('media.barratbhandconsulting.com');
 }
 
 function isStaticAsset(pathname) {

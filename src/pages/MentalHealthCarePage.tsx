@@ -26,7 +26,7 @@ export function MentalHealthCarePage() {
           playsInline
           className="absolute inset-0 w-full h-full object-cover opacity-70"
         >
-          <source src="/media/supporting%20pages%20background.webm" type="video/webm" />
+          <source src="https://media.barratbhandconsulting.com/supporting%20pages%20background.webm" type="video/webm" />
         </video>
         
         {/* Content */}

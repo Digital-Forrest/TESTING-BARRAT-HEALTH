@@ -14,7 +14,7 @@
 - Routes through Cloudflare Worker media proxy with proper CORS headers
 
 **Status**: ✅ Works perfectly on localhost  
-**Production Note**: `inboundwizard.com` requires Cloudflare cache purge to see changes
+**Production Note**: `barratbhandconsulting.com` requires Cloudflare cache purge to see changes
 
 ### 2. **Wrangler Configuration** ✅ FIXED
 **Problem**: `run_worker_first` configuration was too restrictive  
@@ -232,11 +232,11 @@
 ## 🔍 Known Issues & Notes
 
 ### Production Deployment:
-**⚠️ IMPORTANT**: `inboundwizard.com` is serving cached content
+**⚠️ IMPORTANT**: `barratbhandconsulting.com` is serving cached content
 
 **To Fix**:
 1. Go to Cloudflare Dashboard
-2. Select `inboundwizard.com` domain
+2. Select `barratbhandconsulting.com` domain
 3. **Caching** → **Configuration** → **Purge Everything**
 4. Wait 1-2 minutes for propagation
 5. Hard refresh browser (Cmd+Shift+R)
@@ -307,7 +307,7 @@
 - ✅ Verified blog posts work on localhost
 
 ### Pending (User Action Required):
-- ⏳ **Purge Cloudflare cache** for `inboundwizard.com`
+- ⏳ **Purge Cloudflare cache** for `barratbhandconsulting.com`
 - ⏳ **Hard refresh browser** after cache purge
 - ⏳ **Verify blog posts** load on production
 - ⏳ **Test on real mobile devices** for final validation
@@ -318,7 +318,7 @@
 
 ### Immediate:
 1. **Purge Cloudflare Cache** (Dashboard → Caching → Purge Everything)
-2. **Test blog posts** on `inboundwizard.com` after purge
+2. **Test blog posts** on `barratbhandconsulting.com` after purge
 3. **Verify Footer logo** loads correctly
 
 ### Recommended Testing:
@@ -371,7 +371,7 @@ The Barrat Behavioral Health website is **fully optimized** for both mobile and 
 - **Desktop users** get the full experience with animations, high-quality media, and hover states
 - **All users** benefit from lazy loading, code splitting, and performance optimizations
 
-The only remaining issue is the **Cloudflare cache** on `inboundwizard.com`, which requires a manual purge in the dashboard to serve the latest version with the fixed Footer logo.
+The only remaining issue is the **Cloudflare cache** on `barratbhandconsulting.com`, which requires a manual purge in the dashboard to serve the latest version with the fixed Footer logo.
 
 ---
 
