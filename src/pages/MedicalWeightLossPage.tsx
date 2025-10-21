@@ -16,7 +16,7 @@ export function MedicalWeightLossPage() {
     <div className="bg-white">
       <SEO
         title="Medical Weight Loss Management - Specialties"
-        description="Compassionate, evidence-based medical weight loss management at Barrat Behavioral Health. Comprehensive approach addressing both physical and emotional aspects of weight management."
+        description="Medical weight loss program in Woodbridge, VA. Integrated approach addressing physical & mental health aspects of weight management. Personalized care plans."
       />
       
       {/* Hero Section */}

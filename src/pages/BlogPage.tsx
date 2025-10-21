@@ -8,7 +8,7 @@ export function BlogPage() {
     <div className="bg-white">
       <SEO
         title="Mental Health Blog & Resources"
-        description="Our blog provides expert insights, advice, and resources on mental health topics like anxiety, depression, ADHD, and self-care from Barrat Behavioral Health & Primary."
+        description="Expert mental health insights on anxiety, depression, ADHD, PTSD, trauma & self-care. Evidence-based advice from board-certified psychiatric professionals."
       />
       <section className="relative bg-light-gray overflow-hidden">
         {/* Video Background */}

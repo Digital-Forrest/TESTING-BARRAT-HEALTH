@@ -40,7 +40,7 @@ export function ReferralsPage() {
     <div>
       <SEO
         title="Professional Referrals - Barrat Behavioral Health & Primary Care"
-        description="Refer patients or loved ones to Barrat Behavioral Health & Primary Care. We make the referral process seamless for healthcare providers and individuals seeking quality mental health care in Virginia."
+        description="Refer patients for mental health services in Woodbridge, VA. Seamless referral process for healthcare providers & families. Accepting new patients. Fax: 877-353-0126."
       />
       
       {/* Hero Section */}

@@ -20,7 +20,7 @@ export function ContactPage() {
     <div>
       <SEO
         title="Contact Us - Barrat Behavioral Health & Primary"
-        description="Get in touch with Barrat Behavioral Health & Primary. Contact us for appointments, questions, or to learn more about our mental health services in Woodbridge, VA."
+        description="Schedule an appointment or contact us with questions. Located in Woodbridge, VA. Call 571-543-4880 or book online. Telehealth available across Virginia."
       />
       
       {/* Hero Section */}

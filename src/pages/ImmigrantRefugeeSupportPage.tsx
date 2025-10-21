@@ -13,7 +13,7 @@ export function ImmigrantRefugeeSupportPage() {
     <div className="bg-white">
       <SEO
         title="Immigrant & Refugee Psychological Support - Specialties"
-        description="Compassionate, trauma-informed care for individuals and families navigating immigration at Barrat Behavioral Health. Professional psychological evaluations and support."
+        description="Immigration psychological evaluations & trauma-informed therapy. VAWA, asylum, U-Visa support. Serving immigrant & refugee families in Northern Virginia."
       />
       
       {/* Hero Section */}

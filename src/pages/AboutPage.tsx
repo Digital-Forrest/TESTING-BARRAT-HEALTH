@@ -8,7 +8,7 @@ export function AboutPage() {
     <div className="bg-white">
       <SEO
         title="About Our Practice & Founder"
-        description="Meet Kadija Conteh-Barrat, PMHNP-BC, and discover the mission behind Barrat Behavioral Health & Primary. Learn about our compassionate, strengths-based approach to mental wellness."
+        description="Meet Dr. Kadija Conteh-Barrat, dual board-certified PMHNP. Learn about our strengths-based, trauma-informed approach to mental health care in Woodbridge, VA."
       />
       {/* Hero Section */}
       <section className="relative bg-light-gray overflow-hidden">

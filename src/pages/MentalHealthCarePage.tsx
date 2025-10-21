@@ -13,7 +13,7 @@ export function MentalHealthCarePage() {
     <div className="bg-white">
       <SEO
         title="Mental Health Care - Specialties"
-        description="Promoting well-being through personalized, evidence-based support at Barrat Behavioral Health. Holistic, trauma-informed mental health care."
+        description="Holistic mental health care in Woodbridge, VA. Evidence-based therapy, medication management & personalized treatment for lasting wellness. Telehealth available."
       />
       
       {/* Hero Section */}

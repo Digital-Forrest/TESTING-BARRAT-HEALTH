@@ -24,7 +24,7 @@ export function PTSDCarePage() {
     <div className="bg-white">
       <SEO
         title="PTSD Care - Specialties"
-        description="Compassionate, trauma-informed PTSD care at Barrat Behavioral Health. Comprehensive evaluation and personalized treatment for healing and recovery."
+        description="Trauma-informed PTSD treatment in Woodbridge, VA. Evidence-based therapy, medication management & holistic care for healing and recovery. Telehealth available."
       />
       
       {/* Hero Section */}

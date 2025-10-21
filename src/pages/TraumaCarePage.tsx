@@ -24,7 +24,7 @@ export function TraumaCarePage() {
     <div className="bg-white">
       <SEO
         title="Trauma Care - Specialties"
-        description="Comprehensive, trauma-informed care for healing and renewal at Barrat Behavioral Health. Compassionate support for your healing journey."
+        description="Trauma-informed therapy and healing support in Woodbridge, VA. Personalized treatment plans at your pace. Safe, compassionate care for recovery. Book now."
       />
       
       {/* Hero Section */}

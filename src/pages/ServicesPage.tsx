@@ -114,7 +114,7 @@ export function ServicesPage() {
     <div className="bg-white">
       <SEO
         title="Mental Health Services in Woodbridge, VA"
-        description="Explore comprehensive mental health services at Barrat Behavioral Health & Primary. We offer specialized care for ADHD, PTSD, trauma, anxiety, mood disorders, and more for teens and adults."
+        description="Comprehensive mental health services: ADHD, PTSD, trauma, anxiety, depression, mood disorders & more. Serving teens & adults in Northern Virginia. Telehealth available."
       />
       
       {/* Hero Section */}

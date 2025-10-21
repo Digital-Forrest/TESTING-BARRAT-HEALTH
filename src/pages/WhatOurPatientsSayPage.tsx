@@ -217,7 +217,7 @@ export function WhatOurPatientsSayPage() {
     <div className="bg-white">
       <SEO
         title="What Our Patients Say"
-        description="Read authentic 5-star reviews from our patients about their experiences with Dr. Kadija Conteh-Barrat and Barrat Behavioral Health & Primary Care."
+        description="Read 5-star patient reviews of Dr. Kadija Conteh-Barrat and our mental health services in Woodbridge, VA. Real experiences from our compassionate care community."
       />
       
       {/* Hero Section */}

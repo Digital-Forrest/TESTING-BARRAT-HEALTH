@@ -22,7 +22,7 @@ export function ADHDCarePage() {
     <div className="bg-white">
       <SEO
         title="ADHD Care - Specialties"
-        description="Compassionate, neurodivergent-affirming ADHD care at Barrat Behavioral Health. Comprehensive evaluation and personalized treatment for children, teens, and adults."
+        description="Neurodivergent-affirming ADHD treatment for children, teens & adults. Comprehensive evaluation, medication management & therapy. Woodbridge, VA. Book now!"
       />
       
       {/* Hero Section */}

@@ -21,7 +21,7 @@ export function AnxietyDisordersPage() {
     <div className="bg-white">
       <SEO
         title="Anxiety Disorders - Specialties"
-        description="Compassionate care for anxiety grounded in evidence-based support at Barrat Behavioral Health. Treatment for generalized anxiety, panic disorder, and social anxiety."
+        description="Evidence-based anxiety treatment for GAD, panic disorder & social anxiety. Therapy, medication management & coping strategies. Woodbridge, VA. Book today!"
       />
       
       {/* Hero Section */}

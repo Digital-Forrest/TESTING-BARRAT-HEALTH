@@ -21,7 +21,7 @@ export function TestimonialsPage() {
     <div>
       <SEO
         title="Testimonials - Barrat Behavioral Health & Primary"
-        description="Share your experience with Barrat Behavioral Health & Primary. Your feedback helps others find their way to real mental health relief in Woodbridge, VA."
+        description="Share your experience with our mental health services. Patient testimonials help others find quality psychiatric care in Woodbridge, VA. Submit your review today."
       />
       
       {/* Hero Section */}

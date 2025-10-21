@@ -22,7 +22,7 @@ export function MoodDisordersPage() {
     <div className="bg-white">
       <SEO
         title="Mood Disorders - Specialties"
-        description="Comprehensive care to stabilize emotions and restore balance at Barrat Behavioral Health. Holistic, trauma-informed support for mood disorders."
+        description="Depression & bipolar disorder treatment in Woodbridge, VA. Personalized therapy, medication management & holistic support to stabilize emotions. Book today!"
       />
       
       {/* Hero Section */}

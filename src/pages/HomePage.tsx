@@ -12,7 +12,7 @@ export function HomePage() {
     <div>
       <SEO
         title="Compassionate Mental Health Care in Woodbridge, VA"
-        description="Welcome to Barrat Behavioral Health & Primary. We offer expert, patient-centered mental health services for teens and adults in Virginia. Specializing in ADHD, PTSD, anxiety, and trauma care. Start your healing journey today."
+        description="Expert mental health care for teens & adults in Woodbridge, VA. ADHD, PTSD, anxiety, depression & trauma treatment. Telehealth available. Book today!"
       />
       <HeroSection />
       <FounderSection />

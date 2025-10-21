@@ -8,7 +8,7 @@ export function MeetOurTeamPage() {
     <div className="bg-white">
       <SEO
         title="Meet Our Team - Barrat Behavioral Health & Primary"
-        description="Meet the compassionate professionals at Barrat Behavioral Health & Primary. Our dedicated team is committed to providing exceptional mental health care and support."
+        description="Meet our board-certified psychiatric nurse practitioners and team. Experienced mental health professionals dedicated to your healing journey in Woodbridge, VA."
       />
       
       {/* Hero Section */}

@@ -21,7 +21,7 @@ export function SleepConcernsPage() {
     <div className="bg-white">
       <SEO
         title="Sleep Concerns & Psychosomatic Symptoms - Specialties"
-        description="Comprehensive care for rest, balance, and overall well-being at Barrat Behavioral Health. Addressing sleep difficulties and stress-related physical symptoms."
+        description="Treatment for sleep disorders & stress-related physical symptoms. Integrated mind-body approach to improve rest and wellness. Woodbridge, VA. Telehealth available."
       />
       
       {/* Hero Section */}
