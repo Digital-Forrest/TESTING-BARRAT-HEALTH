@@ -1,7 +1,38 @@
+# robots.txt for Barrat Behavioral Health & Primary Care
+# Updated: 2025-10-21
+
+# Allow all search engines to index the site
 User-agent: *
 Allow: /
 
+# Disallow crawling of admin, API, and temporary files
+Disallow: /api/
+Disallow: /_routes.json
+Disallow: /sw.js
+Disallow: /functions/
+
+# Sitemap location
 Sitemap: https://barratbhandconsulting.com/sitemap.xml
 
-# Crawl-delay for respectful crawling
+# Crawl rate
 Crawl-delay: 1
+
+# Common bots - explicit permissions
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+# Disallow bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
