@@ -2,6 +2,8 @@ export interface Env {
 	ASSETS: Fetcher;
 }
 
+const CANONICAL_HOST = "www.barratbhandconsulting.com";
+const ROOT_DOMAIN = "barratbhandconsulting.com";
 const MEDIA_PREFIX = "/media/";
 const COC_BADGE_PATH = "/coc-badge";
 const SPA_ENTRY_POINT = "/index.html";
@@ -116,6 +118,13 @@ export default {
 	 */
 	async fetch(request: Request, env: Env): Promise<Response> {
 		const url = new URL(request.url);
+		const host = url.hostname;
+
+		if (shouldRedirectToCanonicalHost(host)) {
+			url.hostname = CANONICAL_HOST;
+			url.protocol = "https:";
+			return Response.redirect(url.toString(), 301);
+		}
 
 		if (url.pathname === COC_BADGE_PATH) {
 			return handleCocBadge(request);
@@ -138,5 +147,23 @@ export default {
 
 		return assetResponse;
 	},
+};
+
+const shouldRedirectToCanonicalHost = (host: string): boolean => {
+	if (host === CANONICAL_HOST) {
+		return false;
+	}
+
+	// Avoid redirect loops or interfering with preview / local environments
+	if (
+		host.endsWith(".pages.dev") ||
+		host.endsWith(".workers.dev") ||
+		host === "localhost" ||
+		host === "127.0.0.1"
+	) {
+		return false;
+	}
+
+	return host === ROOT_DOMAIN;
 };
 

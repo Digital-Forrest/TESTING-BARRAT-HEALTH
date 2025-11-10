@@ -75,7 +75,6 @@ export function OptimizedVideo({
     const video = videoRef.current;
 
     const attemptPlay = () => {
-      // Ensure browsers that defer autoplay (especially on first load) still start playback
       const playPromise = video.play();
       if (playPromise?.catch) {
         playPromise.catch((error) => {
@@ -86,16 +85,24 @@ export function OptimizedVideo({
       }
     };
 
-    if (canPlay) {
-      attemptPlay();
-      return;
-    }
+    // Set muted flags explicitly to satisfy stricter autoplay policies
+    video.muted = true;
+    video.defaultMuted = true;
 
-    video.addEventListener('canplay', attemptPlay, { once: true });
-    return () => {
-      video.removeEventListener('canplay', attemptPlay);
+    attemptPlay();
+
+    const handleLoadedData = () => {
+      attemptPlay();
     };
-  }, [shouldAutoPlay, canPlay, shouldLoad]);
+
+    video.addEventListener('loadeddata', handleLoadedData);
+    video.addEventListener('canplay', handleLoadedData);
+
+    return () => {
+      video.removeEventListener('loadeddata', handleLoadedData);
+      video.removeEventListener('canplay', handleLoadedData);
+    };
+  }, [shouldAutoPlay, shouldLoad, src]);
 
   // On mobile with disableOnMobile, show poster image if available
   if (disableOnMobile && isMobile && poster) {
