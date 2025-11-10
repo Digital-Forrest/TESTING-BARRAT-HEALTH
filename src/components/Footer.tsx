@@ -1,6 +1,25 @@
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export function Footer() {
+  useEffect(() => {
+    // Load Psychology Today verification script once to render the badge beside the Chamber of Commerce seal
+    const existingScript = document.querySelector<HTMLScriptElement>('script[data-psychologytoday-id="1164659"]');
+    if (existingScript) {
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src = "https://member.psychologytoday.com/verified-seal.js";
+    script.async = true;
+    script.dataset.badge = "15";
+    script.dataset.id = "1164659";
+    script.dataset.code = "aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy8xNS9wcm9maWxlLzExNjQ2NTk/Y2FsbGJhY2s9c3hjYWxsYmFjaw==";
+    script.setAttribute("data-psychologytoday-id", "1164659");
+    document.body.appendChild(script);
+  }, []);
+
   return (
     <footer className="bg-gray-800 text-gray-300">
       <div className="container max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -47,7 +66,7 @@ export function Footer() {
               We are honored to support our community's emotional and physical wellness. If you are experiencing a medical emergency, feeling suicidal, depressed, or struggling with a difficult situation, please call or text the Help Crisis Line <a href="tel:988" className="text-brand-orange hover:text-brand-orange-dark font-semibold">988</a>, call <a href="tel:911" className="text-brand-orange hover:text-brand-orange-dark font-semibold">911</a> or go to the nearest emergency room or crisis center. We are not a 24/7 emergency provider.
             </p>
           </div>
-          <div className="flex justify-center items-center mb-6">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-6">
             <a 
               id='COCBadgeURL' 
               href='https://www.chamberofcommerce.com/business-directory/virginia/lake-ridge/mental-health-service/2024063532-barrat-behavioral-health-and-primary-care?source=memberwebsite' 
@@ -62,6 +81,16 @@ export function Footer() {
                 alt='Chamber of Commerce Member Badge'
               />
             </a>
+            <div className="flex flex-col items-center text-center text-gray-200 text-sm">
+              <span className="sr-only">Professional verification provided by Psychology Today</span>
+              <a
+                href="https://www.psychologytoday.com/profile/1164659"
+                className="sx-verified-seal"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View Psychology Today professional verification"
+              />
+            </div>
           </div>
           <div className="flex flex-col sm:flex-row justify-between items-center">
             <p className="text-base text-gray-400">&copy; {new Date().getFullYear()} Barrat Behavioral Health and Primary Care. All rights reserved.</p>

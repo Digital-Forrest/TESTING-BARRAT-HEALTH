@@ -92,6 +92,36 @@ export function OptimizedVideo({
   // Don't autoplay on slow connections
   const shouldAutoPlay = autoPlay && connectionType !== 'slow';
 
+  useEffect(() => {
+    if (!videoRef.current || !shouldAutoPlay) {
+      return;
+    }
+
+    const video = videoRef.current;
+
+    const attemptPlay = () => {
+      // Ensure browsers that defer autoplay (especially on first load) still start playback
+      const playPromise = video.play();
+      if (playPromise?.catch) {
+        playPromise.catch((error) => {
+          if (import.meta.env.DEV) {
+            console.warn('Autoplay prevented:', error);
+          }
+        });
+      }
+    };
+
+    if (canPlay) {
+      attemptPlay();
+      return;
+    }
+
+    video.addEventListener('canplay', attemptPlay, { once: true });
+    return () => {
+      video.removeEventListener('canplay', attemptPlay);
+    };
+  }, [shouldAutoPlay, canPlay]);
+
   return (
     <video
       ref={videoRef}
