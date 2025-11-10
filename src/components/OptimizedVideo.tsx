@@ -64,36 +64,11 @@ export function OptimizedVideo({
     return () => observer.disconnect();
   }, [priority, preloadImages]);
 
-  // On mobile with disableOnMobile, show poster image if available
-  if (disableOnMobile && isMobile && poster) {
-    return (
-      <div ref={containerRef} className={cn('relative overflow-hidden', className)}>
-        <img 
-          src={poster} 
-          alt="" 
-          className="w-full h-full object-cover"
-          loading={priority ? 'eager' : 'lazy'}
-        />
-      </div>
-    );
-  }
-
-  if (!shouldLoad) {
-    return (
-      <div
-        ref={containerRef}
-        className={cn('bg-gray-200 animate-pulse', className)}
-        style={{ aspectRatio: '16/9' }}
-        aria-hidden="true"
-      />
-    );
-  }
-
   // Don't autoplay on slow connections
   const shouldAutoPlay = autoPlay && connectionType !== 'slow';
 
   useEffect(() => {
-    if (!videoRef.current || !shouldAutoPlay) {
+    if (!videoRef.current || !shouldAutoPlay || !shouldLoad) {
       return;
     }
 
@@ -120,7 +95,32 @@ export function OptimizedVideo({
     return () => {
       video.removeEventListener('canplay', attemptPlay);
     };
-  }, [shouldAutoPlay, canPlay]);
+  }, [shouldAutoPlay, canPlay, shouldLoad]);
+
+  // On mobile with disableOnMobile, show poster image if available
+  if (disableOnMobile && isMobile && poster) {
+    return (
+      <div ref={containerRef} className={cn('relative overflow-hidden', className)}>
+        <img 
+          src={poster} 
+          alt="" 
+          className="w-full h-full object-cover"
+          loading={priority ? 'eager' : 'lazy'}
+        />
+      </div>
+    );
+  }
+
+  if (!shouldLoad) {
+    return (
+      <div
+        ref={containerRef}
+        className={cn('bg-gray-200 animate-pulse', className)}
+        style={{ aspectRatio: '16/9' }}
+        aria-hidden="true"
+      />
+    );
+  }
 
   return (
     <video
